@@ -1,8 +1,8 @@
 ---
 title: "Genetics-based Environmental Niche Modeling"
 output: 
-html_document: 
-keep_md: yes
+pdf_document: 
+keep_md: no
 
 ---
 
@@ -41,10 +41,9 @@ map_occurrences(Data[Data[, "ant.species"] == "picea", ],
 
 ```
 
-# Results Summary
 
+# Modeling and Analyses 
 
-# Analysis and Results
 
 ## Data Cleaning
 
@@ -71,14 +70,24 @@ map_occurrences(Data[Data[, "ant.species"] == "picea", ],
 ## Dependencies
 
 
+
+
+## Check: Sampling Depth
+
+
+
+
+
+
 # Assess Sampling Coverage and Depth
 
 # Species Distribution Models
 
-# Plots and Tables
+# Results
 
 - Assess patterns of distribution for each species
 - Assess co-distribution patterns
 - Assess mutualist distributions
 - Assess conservation edges
+
 
