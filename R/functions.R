@@ -1,3 +1,22 @@
+#' clean_data: detect and fix or remove errors in data
+#' x = data object
+#'
+
+clean_data <- function(x){
+    
+    x[1822, c("Month", "Day", "Year")]<- c(03,08,1878)
+    x[1823, c("Month", "Day", "Year")]<- c(03,08,1878)
+    x[1824, c("Month", "Day", "Year")]<- c(04,29,1889)
+    x[1825, c("Month", "Day", "Year")]<- c(05,10,1896)
+    x[1826, c("Month", "Day", "Year")]<- c(05,01,1898)
+    x[1827, c("Month", "Day", "Year")]<- c(05,01,1898)
+    x[1828, c("Month", "Day", "Year")]<- c(07,14,1899)
+    x <- transform(x, Year = as.numeric(Year))
+
+    return(x)
+
+}
+
 #' subset_species: subsets a dataframe for a species of interest
 #' x = "species name"
 #'example: picea <- subset_species("picea") stores a dataframe of unique coordinates
