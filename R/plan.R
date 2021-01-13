@@ -35,7 +35,7 @@ plan <- drake_plan(
     geom_histogram(binwidth = 28, fill="darkcyan", col="Black", size=1, alpha=0.65) + 
     theme(panel.background = element_rect(fill="darkseagreen1")) +
     labs(title = "Aphaenogaster Observations", y="Number of Observations"),
-  
+   
   BClim = brick("data/YbrevBC_2.5.grd")
   
 )
