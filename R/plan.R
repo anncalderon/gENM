@@ -3,10 +3,11 @@ plan <- drake_plan(
   files = list.files(path="data", pattern = "^hf147-1(.*).csv$", 
                      full.names = TRUE),
   
-  Data = sapply(files, read.csv, simplify=FALSE) %>% bind_rows(.id = "id") %>% 
-    select(latitude, longitude, ant.genus, ant.species) %>% 
+  Data <- sapply(files, read.csv, simplify=FALSE) %>% bind_rows(.id = "id") %>% 
+    select(latitude, longitude, ant.genus, ant.species, date) %>% 
     as.data.frame() %>% na.omit() %>% filter(ant.genus=="Aphaenogaster") %>%
-    select(-ant.genus),
+    select(-ant.genus) %>% separate(date, c('Month', 'Day', 'Year'),'/'),
+  
 ## Cleaning  
   Data = clean_data(Data),
 ## Contour Plots
