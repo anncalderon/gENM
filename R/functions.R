@@ -44,3 +44,16 @@ map_occurrences <- function(df, xrange, yrange, title=""){
   axis(1,las=1)
   axis(2,las=1)
   box()}
+
+
+#' plotly_map_occurrences: creates a distribution map of species presence data using plotly
+#' x = Data frame
+#' example: plotly_map_occurrences(df = Data)
+
+plotly_map_occurrences <- function(df){
+  plot_ly(df, lat=~latitude, lon=~longitude,  
+          marker = list(color = "fuchsia"),
+          type = 'scattermapbox',
+          hovertext =df[,c('longitude','latitude')]) %>%
+    layout(mapbox = list(style = 'open-street-map', zoom =4.5,
+                         center = list(lon = -71.81, lat = 43.64)))}
