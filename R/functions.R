@@ -57,3 +57,30 @@ plotly_map_occurrences <- function(df){
           hovertext =df[,c('longitude','latitude')]) %>%
     layout(mapbox = list(style = 'open-street-map', zoom =4.5,
                          center = list(lon = -71.81, lat = 43.64)))}
+
+#' plot_contour
+#' Create a contour plot to identify sampling distribution.
+#' x = species distribution data
+
+plot_contour <- function(x){
+
+    Data$Year_Bin = cut(Data$Year, 28)
+    data.loess = loess(Year ~ longitude * latitude, data = Data)
+    xgrid =  seq(min(Data$longitude), max(Data$longitude), 0.5)
+    ygrid =  seq(min(Data$latitude), max(Data$latitude), 0.5)
+    data.fit =  expand.grid(longitude = xgrid, latitude = ygrid)
+    mtrx3d =  predict(data.loess, newdata = data.fit)
+    mtrx.melt = melt(mtrx3d, id.vars = c('longitude' , 'latitude'), 
+                 measure.vars =('Year_Bin'))
+    names(mtrx.melt) = c('longitude', 'latitude', 'Year_Bin')
+    mtrx.melt$longitude = as.numeric(
+        str_sub(mtrx.melt$longitude, 
+                str_locate(mtrx.melt$longitude, '=')[1,1] + 1))
+    mtrx.melt$latitude = as.numeric(
+        str_sub(mtrx.melt$latitude, 
+                str_locate(mtrx.melt$latitude, '=')[1,1] + 1))
+    stat_contour() + 
+        geom_point(data=Data, aes(color=Year_Bin)) + 
+        labs(title='Aphaenogaster ssp. Sampling Distribution by Year')
+
+}
