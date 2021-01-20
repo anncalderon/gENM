@@ -79,10 +79,10 @@ plotly_map_occurrences <- function(df){
 
 plot_contour <- function(x){
 
-    Data$Year_Bin = cut(Data$Year, 28)
-    data.loess = loess(Year ~ longitude * latitude, data = Data)
-    xgrid =  seq(min(Data$longitude), max(Data$longitude), 0.5)
-    ygrid =  seq(min(Data$latitude), max(Data$latitude), 0.5)
+    x$Year_Bin = cut(x$Year, 28)
+    data.loess = loess(Year ~ longitude * latitude, data = x)
+    xgrid =  seq(min(x$longitude), max(x$longitude), 0.5)
+    ygrid =  seq(min(x$latitude), max(x$latitude), 0.5)
     data.fit =  expand.grid(longitude = xgrid, latitude = ygrid)
     mtrx3d =  predict(data.loess, newdata = data.fit)
     mtrx.melt = melt(mtrx3d, id.vars = c('longitude' , 'latitude'), 
@@ -95,7 +95,7 @@ plot_contour <- function(x){
         str_sub(mtrx.melt$latitude, 
                 str_locate(mtrx.melt$latitude, '=')[1,1] + 1))
     stat_contour() + 
-        geom_point(data=Data, aes(color=Year_Bin)) + 
+        geom_point(data=x, aes(color=Year_Bin)) + 
         labs(title='Aphaenogaster ssp. Sampling Distribution by Year')
 
 }
