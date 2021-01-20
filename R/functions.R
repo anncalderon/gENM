@@ -1,3 +1,18 @@
+#' load_data: fetch and prep data from disk
+
+load_data <- function(files){
+
+    out <- sapply(files, read.csv, simplify=FALSE) %>% bind_rows(.id = "id") %>% 
+        select(latitude, longitude, ant.genus, ant.species, date) %>% 
+        as.data.frame() %>% 
+        na.omit() %>% 
+        filter(ant.genus=="Aphaenogaster") %>%       
+        select(-ant.genus) %>% 
+        separate(date, c('Month', 'Day', 'Year'),'/')
+    return(out)
+
+}
+
 #' clean_data: detect and fix or remove errors in data
 #' x = data object
 #'

@@ -1,17 +1,12 @@
 plan <- drake_plan(
   
+## Munge data
   files = list.files(path="data", pattern = "^hf147-1(.*).csv$", 
                      full.names = TRUE),
-  
-  Data = sapply(files, read.csv, simplify=FALSE) %>% bind_rows(.id = "id") %>% 
-    select(latitude, longitude, ant.genus, ant.species, date) %>% 
-    as.data.frame() %>% na.omit() %>% filter(ant.genus=="Aphaenogaster") %>%
-    select(-ant.genus) %>% separate(date, c('Month', 'Day', 'Year'),'/'),
-  
-## Cleaning  
-  Data = clean_data(Data),
+  data.raw = load_data(files),
+  Data = clean_data(data.raw),
 ## Contour Plots
-  plot_contour(data),
+  plot_contour(Data),
 ## Histogram plot  
   aph_hist = ggplot(Data, aes(x=Year)) +
     geom_histogram(binwidth = 28, fill="darkcyan", col="Black", size=1, alpha=0.65) + 
