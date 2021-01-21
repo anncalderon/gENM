@@ -25,7 +25,7 @@ keep_md: no
 
 ```{r data-prev, echo = FALSE}
 
-loadd(Data)
+loadd(Data, fig.cp)
 head(Data)
 table(Data[, "ant.species"])
 
@@ -74,6 +74,11 @@ map_occurrences(Data[Data[, "ant.species"] == "picea", ],
 
 ## Check: Sampling Depth
 
+```{r fig-contour}
+
+fig.cp
+
+```
 
 
 
