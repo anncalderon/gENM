@@ -75,7 +75,7 @@ plotly_map_occurrences <- function(df){
 
 #' plot_contour
 #' Create a contour plot to identify sampling distribution.
-#' x = species distribution data
+#' x = species distribution dataset
 
 plot_contour <- function(x){
 
@@ -94,8 +94,9 @@ plot_contour <- function(x){
     mtrx.melt$latitude = as.numeric(
         str_sub(mtrx.melt$latitude, 
                 str_locate(mtrx.melt$latitude, '=')[1,1] + 1))
-    stat_contour() + 
-        geom_point(data=x, aes(color=Year_Bin)) + 
+    out = ggplot(mtrx.melt, aes(x = longitude, y = latitude, z = Year_Bin)) +
+    stat_contour() + geom_point(data=x, aes(color=Year_Bin)) + 
         labs(title='Aphaenogaster ssp. Sampling Distribution by Year')
+    return(out)
 
 }
