@@ -3,8 +3,8 @@ plan <- drake_plan(
 ## Munge data
   files = list.files(path="data", pattern = "^hf147-1(.*).csv$", 
                      full.names = TRUE),
+
 ## Cleaning  
-  Data = clean_data(Data),
   data.raw = load_data(files),
   Data = clean_data(data.raw),
 
