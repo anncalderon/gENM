@@ -1,0 +1,8 @@
+class       : RasterLayer 
+dimensions  : 159, 162, 25758  (nrow, ncol, ncell)
+resolution  : 0.04166597, 0.04166601  (x, y)
+extent      : -73.79381, -67.04392, 40.91699, 47.54189  (xmin, xmax, ymin, ymax)
+coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 
+data source : /Users/hermes/Projects/HF/projects/gENM/data/01_01_2006.tiff 
+names       : X01_01_2006 
+

@@ -1,0 +1,300 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+setwd("/Users/annacalderon/Desktop/gENM/src/SDM F aserva/data")\
+\
+#install.packages("rgbif")\
+#If you don't already have these packages, install them (from CRAN)\
+#install.packages("mapproj")\
+#install.packages("mapdata")\
+#install.packages("sp")\
+#install.packages("maptools")\
+#install.packages("dismo")\
+#install.packages("rJava")\
+\
+#require basically "loads" your R packages. \
+#But, I've read that "library" is the more correct way to do this.\
+#Instead "require" TRYs to load the package from the library.\
+#Whereas "library" will stop if the package you are looking for isn't already installed. \
+\
+library(mapproj)\
+library(mapdata)\
+library(maptools)\
+library(dismo)\
+library(rJava)\
+library(rgbif)\
+\
+########################################SETTING UP YOUR DATA###################################\
+\
+Apicea_raw <- gbif(genus = 'Aphaenogaster', species = 'picea') #this function will pull\
+#up all of the records in gbif of A. picea, and we have assigned a name to it.\
+Apicea_raw[,c('lat','lon')] #now we'll create a vector which only calls up lat and long information. \
+## you will notice that some records don't have any useful information ("NA")\
+#to omit these use the "na.omit()" function to clean it up.\
+na.omit(Apicea_raw[,c('lat','lon')])\
+#and re-assign a name\
+Apicea <- na.omit(Apicea_raw[,c('lat','lon')])\
+#you can check that everything was ommited by printing. print(Apice# notice we're limiting the extent of the map to focus on the Mojave Desert region\
+#now checkout the ranges so you know what coordinate ranges to use.\
+\
+range(Apicea[ ,'lon'])\
+range(Apicea[ , 'lat'])\
+\
+#Then plot these points to check them ...\
+data(stateMapEnv)\
+\
+###########################PLOTTING PRESENCE AND ABSENCE POINTS#################################\
+\
+# notice we're limiting the extent of the map to focus on the Mojave Desert region\
+#here, c(-99.2, -63) will set your longitudinal boudries, namely your west and east boundries.\
+#whereas c(23.6, 45.5) will set your latitude boundries, in other words your north and south limits\
+plot(c(-99.2, -63), c(23.6, 45.5), mar=par("mar"), xlab="longitude", ylab="latitude", xaxt="n", yaxt="n", type="n", main="Joshua tree presence data")\
+rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4], col="lightcyan")\
+map("state", xlim=c(-99.2, -63), ylim=c(23.6, 45.5), fill=T, col="honeydew", add=T)\
+\
+\
+# add some nice state labels ...\
+text(x=-99.06, y=31.72, "Texas", col="black", cex=.3)\
+text(x=-97.06, y=35.02, "Oklahoma", col="black", cex=.3)\
+text(x=-97.7, y=38, "Texas", col="black", cex=.3)\
+text(x=-98, y=41 , "Nebraska", col="black", cex=.3)\
+text(x=-99, y=44 , "South Dakota", col="black", cex=.3)\
+text(x=-100, y=47 , "North Dakota", col="black", cex=.3)\
+text(x=-94, y=46 , "Minnesota", col="black", cex=.3)\
+text(x=-93, y=42 , "Iowa", col="black", cex=.3)\
+text(x=-93, y=38 , "Missouri", col="black", cex=.3)\
+text(x=-92, y= 35, "Arkansas", col="black", cex=.3)\
+text(x=-89, y=33 , "Mississippi", col="black", cex=.3)\
+text(x=-86, y= 32, "Alabama", col="black", cex=.3)\
+text(x=-83, y= 33, "Gerogia", col="black", cex=.3)\
+text(x=-81, y=27 , "Florida", col="black", cex=.3)\
+text(x=-86, y=35, "Tennessee", col="black", cex=.3)\
+text(x=-85, y=37.5 , "Kentucky", col="black", cex=.3)\
+text(x=-89, y=40 , "Illinois", col="black", cex=.3)\
+text(x=-89.5, y=44 , "Wisconsin", col="black", cex=.3)\
+text(x=-85, y= 43.5, "Michigan", col="black", cex=.3)\
+text(x=-86, y=40 , "Indiana", col="black", cex=.3)\
+text(x=-83, y=40 , "Ohio", col="black", cex=.3)\
+text(x=-87, y=36 , "Tennessee", col="black", cex=.3)\
+text(x=-81, y=38 , "West Virginia", col="black", cex=.3)\
+text(x=-78, y=41 , "Pennsylvania", col="black", cex=.3)\
+text(x=-75, y=43 , "New York", col="black", cex=.3)\
+text(x=-79, y=37, "Virginia", col="black", cex=.3)\
+text(x=-78, y=35 , "North Carolina", col="black", cex=.3)\
+text(x=-80, y= 34, "South Carolina", col="black", cex=.3)\
+text(x=-92, y=31 , "Louisiana", col="black", cex=.3)\
+text(x=-69, y=45 , "Maine", col="black", cex=.3)\
+text(x=-73, y=44, "VT", col="black", cex=.3)\
+text(x=-72, y=43.6 , "NH", col="black", cex=.3)\
+text(x=-72, y= 42.2, "MA", col="black", cex=.3)\
+text(x=-72, y= 41.7, "CN", col="black", cex=.3)\
+text(x=-74.5, y= 40, "NJ", col="black", cex=.3)\
+\
+# plot the points\
+points(Apicea$lon, Apicea$lat, col="darkolivegreen4", pch=20, cex=0.5)\
+\
+# add some axes\
+axis(1,las=1)\
+axis(2,las=1)\
+\
+#Outline the graph\
+box()\
+\
+# create sequences of latitude and longitude values to define the grid\
+longrid = seq(-99.2,-63,0.05)\
+latgrid = seq(23.6, 45.5,0.05)\
+\
+# identify points within each grid cell, draw one at random\
+subs = c()\
+for(i in 1:(length(longrid)-1))\{\
+  for(j in 1:(length(latgrid)-1))\{\
+    gridsq = subset(Apicea, lat > latgrid[j] & lat < latgrid[j+1] & lon > longrid[i] & lon < longrid[i+1])    \
+    if(dim(gridsq)[1]>0)\{\
+      subs = rbind(subs, gridsq[sample(1:dim(gridsq)[1],1 ), ])\
+    \}\
+  \}\
+\}\
+dim(subs) # confirm that you have a smaller dataset than you started with\
+\
+# define circles with a radius of 50 km around the subsampled points\
+x=circles(subs[,c("lon","lat")], d=50000, lonlat=T)\
+plot(x@polygons, axes=T, col=rgb(0,0,0,0.1), border=NA, add=T)\
+\
+\
+#if you don't have the rgeos package already installed, it is likely that you will\
+#run into an error. To install it use this command: install.packages("rgeos) and\
+# install.packages("rgdal")\
+\
+# draw random points that must fall within the circles in object x\
+bg = spsample(x@polygons, 1000, type='random', iter=1000)\
+points(bg,col="khaki4",pch=1,cex=0.3)\
+\
+\
+\
+######################################HANDLING CLIMATE DATA#####################################\
+\
+\
+require(raster)\
+#BClim = getData("worldclim", var="bio", res=2.5, path="/Users/annacalderon/Desktop/gENM/src/SDM A picea/data")\
+\
+#if the data is unwiedly, crop it. \
+YbrevRange = extent(-99.2,-63,23.6, 45.5) # define the extent\
+BClim = crop(BClim, YbrevRange)\
+writeRaster(BClim, filename="/Users/annacalderon/Desktop/gENM/src/SDM A picea/data", overwrite=T)\
+#....aaaaand, reload it from the file that contains the croped BClim data \
+BClim = brick("/Users/annacalderon/Desktop/gENM/src/SDM A picea/data/data.grd")\
+\
+#Now you can start plotting your data! YEYYYYYYYY. \
+\
+\
+\
+#########################ANNUAL MEAN TEMPERATURE (C X 10)#####################################\
+\
+\
+# this format plots the first (of 19) variables stored in BClim; change the 1 to 2-19 for the others\
+plot(BClim, 1, cex=0.5, legend=T, mar=par("mar"), xaxt="n", yaxt="n", main="Annual mean temperature (\'baC x 10)")\
+map("state", xlim=c(-99.2,-63), ylim=c(23.6,45.5), fill=F, col="honeydew", add=T)\
+\
+# state names\
+text(x=-99.06, y=31.72, "Texas", col="black", cex=.3)\
+text(x=-97.06, y=35.02, "Oklahoma", col="black", cex=.3)\
+text(x=-97.7, y=38, "Texas", col="black", cex=.3)\
+text(x=-98, y=41 , "Nebraska", col="black", cex=.3)\
+text(x=-99, y=44 , "South Dakota", col="black", cex=.3)\
+text(x=-100, y=47 , "North Dakota", col="black", cex=.3)\
+text(x=-94, y=46 , "Minnesota", col="black", cex=.3)\
+text(x=-93, y=42 , "Iowa", col="black", cex=.3)\
+text(x=-93, y=38 , "Missouri", col="black", cex=.3)\
+text(x=-92, y= 35, "Arkansas", col="black", cex=.3)\
+text(x=-89, y=33 , "Mississippi", col="black", cex=.3)\
+text(x=-86, y= 32, "Alabama", col="black", cex=.3)\
+text(x=-83, y= 33, "Gerogia", col="black", cex=.3)\
+text(x=-81, y=27 , "Florida", col="black", cex=.3)\
+text(x=-86, y=35, "Tennessee", col="black", cex=.3)\
+text(x=-85, y=37.5 , "Kentucky", col="black", cex=.3)\
+text(x=-89, y=40 , "Illinois", col="black", cex=.3)\
+text(x=-89.5, y=44 , "Wisconsin", col="black", cex=.3)\
+text(x=-85, y= 43.5, "Michigan", col="black", cex=.3)\
+text(x=-86, y=40 , "Indiana", col="black", cex=.3)\
+text(x=-83, y=40 , "Ohio", col="black", cex=.3)\
+text(x=-87, y=36 , "Tennessee", col="black", cex=.3)\
+text(x=-81, y=38 , "West Virginia", col="black", cex=.3)\
+text(x=-78, y=41 , "Pennsylvania", col="black", cex=.3)\
+text(x=-75, y=43 , "New York", col="black", cex=.3)\
+text(x=-79, y=37, "Virginia", col="black", cex=.3)\
+text(x=-78, y=35 , "North Carolina", col="black", cex=.3)\
+text(x=-80, y= 34, "South Carolina", col="black", cex=.3)\
+text(x=-92, y=31 , "Louisiana", col="black", cex=.3)\
+text(x=-69, y=45 , "Maine", col="black", cex=.3)\
+text(x=-73, y=44, "VT", col="black", cex=.3)\
+text(x=-72, y=43.6 , "NH", col="black", cex=.3)\
+text(x=-72, y= 42.2, "MA", col="black", cex=.3)\
+text(x=-72, y= 41.7, "CN", col="black", cex=.3)\
+text(x=-74.5, y= 40, "NJ", col="black", cex=.3)\
+\
+# plot the presence points\
+points(Apicea$lon, Apicea$lat, col="darkolivegreen4", pch=20, cex=0.5)\
+\
+#...annnnddd...your pseudo-absence points. yus. \
+points(bg,col="snow",pch=1,cex=0.2)\
+# add axes\
+axis(1,las=1)\
+axis(2,las=1)\
+#and a box\
+box()\
+\
+\
+\
+#################################PULLING BIOCLIM VALUE######################################\
+##################################????????????????????######################################\
+\
+\
+# for the subsampled presence points\
+Ybrev_bc = extract(BClim, subs[,c("lon","lat")]) \
+# for the pseudo-absence points\
+bg_bc = extract(BClim, bg) \
+\
+#You\'92ll probably want to build some useful dataframes\
+#with two columns of coordinates followed by the 19 bioclim variables.\
+#First, for the presence points:\
+Ybrev_bc = data.frame(lon=subs$lon, lat=subs$lat, Ybrev_bc)\
+\
+#And then for the pseudo-absences:\
+bgpoints = bg@coords\
+colnames(bgpoints) = c("lon","lat")\
+bg_bc = data.frame(cbind(bgpoints,bg_bc))\
+length(which(is.na(bg_bc$bio1))) # double-check for missing data\
+bg_bc = bg_bc[!is.na(bg_bc$bio1), ] # and pull out the missing lines\
+\
+group_p = kfold(Ybrev_bc, 5) # vector of group assignments splitting the Ybrev_bc into 5 groups\
+group_a = kfold(bg_bc, 5) # ditto for bg_bc\
+\
+####################################  BUILDING YOUR SDM  ############################################\
+test=3\
+train_p = Ybrev_bc[group_p!=test, c("lon","lat")]\
+train_a = bg_bc[group_a!=test, c("lon","lat")]\
+test_p = Ybrev_bc[group_p==test, c("lon","lat")]\
+test_a = bg_bc[group_a==test, c("lon","lat")]\
+\
+me = maxent(BClim, p=train_p, a=train_a)\
+e = evaluate(test_p, test_a, me, BClim)\
+e\
+\
+pred_me = predict(me, BClim) # generate the predictions\
+\
+# make a nice plot\
+plot(pred_me, 1, cex=0.5, legend=T, mar=par("mar"), xaxt="n", yaxt="n", main="Predicted Presence of A. picea")\
+map("state", xlim=c(-99.2,-63), ylim=c(23.6,45.5), fill=F, col="black", add=T)\
+\
+# state names\
+text(x=-99.06, y=31.72, "Texas", col="black", cex=.3)\
+text(x=-97.06, y=35.02, "Oklahoma", col="black", cex=.3)\
+text(x=-97.7, y=38, "Texas", col="black", cex=.3)\
+text(x=-98, y=41 , "Nebraska", col="black", cex=.3)\
+text(x=-99, y=44 , "South Dakota", col="black", cex=.3)\
+text(x=-100, y=47 , "North Dakota", col="black", cex=.3)\
+text(x=-94, y=46 , "Minnesota", col="black", cex=.3)\
+text(x=-93, y=42 , "Iowa", col="black", cex=.3)\
+text(x=-93, y=38 , "Missouri", col="black", cex=.3)\
+text(x=-92, y= 35, "Arkansas", col="black", cex=.3)\
+text(x=-89, y=33 , "Mississippi", col="black", cex=.3)\
+text(x=-86, y= 32, "Alabama", col="black", cex=.3)\
+text(x=-83, y= 33, "Gerogia", col="black", cex=.3)\
+text(x=-81, y=27 , "Florida", col="black", cex=.3)\
+text(x=-86, y=35, "Tennessee", col="black", cex=.3)\
+text(x=-85, y=37.5 , "Kentucky", col="black", cex=.3)\
+text(x=-89, y=40 , "Illinois", col="black", cex=.3)\
+text(x=-89.5, y=44 , "Wisconsin", col="black", cex=.3)\
+text(x=-85, y= 43.5, "Michigan", col="black", cex=.3)\
+text(x=-86, y=40 , "Indiana", col="black", cex=.3)\
+text(x=-83, y=40 , "Ohio", col="black", cex=.3)\
+text(x=-87, y=36 , "Tennessee", col="black", cex=.3)\
+text(x=-81, y=38 , "West Virginia", col="black", cex=.3)\
+text(x=-78, y=41 , "Pennsylvania", col="black", cex=.3)\
+text(x=-75, y=43 , "New York", col="black", cex=.3)\
+text(x=-79, y=37, "Virginia", col="black", cex=.3)\
+text(x=-78, y=35 , "North Carolina", col="black", cex=.3)\
+text(x=-80, y= 34, "South Carolina", col="black", cex=.3)\
+text(x=-92, y=31 , "Louisiana", col="black", cex=.3)\
+text(x=-69, y=45 , "Maine", col="black", cex=.3)\
+text(x=-73, y=44, "VT", col="black", cex=.3)\
+text(x=-72, y=43.6 , "NH", col="black", cex=.3)\
+text(x=-72, y= 42.2, "MA", col="black", cex=.3)\
+text(x=-72, y= 41.7, "CN", col="black", cex=.3)\
+text(x=-74.5, y= 40, "NJ", col="black", cex=.3)\
+\
+#the pseudo-absence points\
+points(bg,col="snow",pch=1,cex=0.2)\
+# and the presence points\
+points(Apicea$lon, Apicea$lat, col="darkgreen", pch=20, cex=0.5)\
+\
+\
+# add axes\
+axis(1,las=1)\
+axis(2,las=1)\
+box()\
+}

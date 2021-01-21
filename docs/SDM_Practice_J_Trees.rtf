@@ -1,0 +1,181 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
+{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red62\green62\blue62;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx576\tx1152\tx1728\tx2304\tx2880\tx3456\tx4032\tx4608\tx5184\tx5760\tx6337\tx6913\tx7489\tx8065\tx8641\tx9217\tx9793\tx10369\tx10945\tx11521\tx12097\tx12674\tx13250\tx13826\tx14402\tx14978\tx15554\tx16130\tx16706\tx17282\tx17858\tx18435\tx19011\tx19587\tx20163\tx20739\tx21315\tx21891\tx22467\tx23043\tx23619\tx24195\tx24772\tx25348\tx25924\tx26500\tx27076\tx27652\tx28228\tx28804\tx29380\tx29956\tx30532\tx31109\tx31685\tx32261\tx32837\tx33413\tx33989\tx34565\tx35141\tx35717\tx36293\tx36870\li80\fi-80\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 #Anna Calderon\
+#Harvard Forest\
+#SDM Joshua Trees\
+#June 1 2016\
+\
+#http://www.molecularecologist.com/2013/04/species-distribution-models-in-r/\
+\
+\
+#setwd("/Users/annacalderon/Desktop/gENM/src/SDM")\
+#If you don't already have these packages, install them (from CRAN)\
+#install.packages("mapproj")\
+#install.packages("mapdata")\
+#install.packages("sp")\
+#install.packages("maptools")\
+#install.packages("dismo")\
+#install.packages("rJava")\
+\
+\
+#require basically "loads" your R packages. \
+#But, I've read that "library" is the more correct way to do this.\
+#Instead "require" TRYs to load the package from the library.\
+#Whereas "library" will stop if the package you are looking for isn't already installed. \
+\
+require(mapproj)\
+require(mapdata)\
+require(maptools)\
+require(dismo)\
+library(rJava)\
+\
+# load the table of latitude and longitude coordinates\
+\
+# Note that R will give you an error message if the txt file that \
+# contains your data is not in the "proper" working directory.\
+#to fix this, tell R where you want to pull your data from by using\
+#setwd("name of directory). \
+#For example, if there is a specific folder I \
+#want to pull my data from, I will do this: setwd("/Users/annacalderon/desktop/gENM/src/SDM")\
+\
+locs=read.table(file="JTreeLocations.txt", header=T, sep="\\t")\
+\
+# then plot these points to check them ...\
+data(stateMapEnv) \
+\
+# notice we're limiting the extent of the map to focus on the Mojave Desert region\
+plot(c(-119, -113), c(33.5, 38), mar=par("mar"), xlab="longitude", ylab="latitude", xaxt="n", yaxt="n", type="n", main="Joshua Tree Rresence Data")\
+rect(par("usr")[1],par("usr")[3],par("usr")[2],par("usr")[4], col="paleturquoise")\
+map("state", xlim=c(-119, -113), ylim=c(33.5, 38), fill=T, col="honeydew2", add =T)\
+\
+# add some nice state labels ...\
+text(x=-117.5, y=35.5, "California", col="black", cex=1)\
+text(x=-116, y=37.5, "Nevada", col="black", cex=1)\
+text(x=-113, y=34.5, "Arizona", col="black", cex=1)\
+text(x=-113, y=37.75, "Utah", col="black", cex=1)\
+\
+# plot the points\
+points(locs$longitude, locs$latitude, col="darkblue", pch=20, cex=0.5)\
+\
+# add some axes\
+axis(1,las=1)\
+axis(2,las=1)\
+\
+#Outline the graph\
+box()\
+\
+# create sequences of latitude and longitude values to define the grid\
+longrid = seq(-119,-113,0.05)\
+latgrid = seq(33.5,38,0.05)\
+\
+# identify points within each grid cell, draw one at random\
+subs = c()\
+for(i in 1:(length(longrid)-1))\{\
+  for(j in 1:(length(latgrid)-1))\{\
+    gridsq = subset(locs, latitude > latgrid[j] & latitude < latgrid[j+1] & longitude > longrid[i] & longitude < longrid[i+1])    \
+    if(dim(gridsq)[1]>0)\{\
+      subs = rbind(subs, gridsq[sample(1:dim(gridsq)[1],1 ), ])\
+    \}\
+  \}\
+\}\
+dim(subs) # confirm that you have a smaller dataset than you started with\
+\
+# define circles with a radius of 50 km around the subsampled points\
+x=circles(subs[,c("longitude","latitude")], d=50000, lonlat=T)\
+plot(x@polygons, axes=T, col=rgb(0,0,0,0.1), border=NA, add=T)\
+\
+\
+#if you don't have the rgeos package already installed, it is likely that you will\
+#run into an error. To install it use this command: install.packages("rgeos) and\
+# install.packages("rgdal")\
+\
+# draw random points that must fall within the circles in object x\
+bg = spsample(x@polygons, 1000, type='random', iter=1000)\
+points(bg,col="khaki4",pch=1,cex=0.4)\
+\
+require(raster)\
+BClim = getData("worldclim", var="bio", res=2.5, path="/Users/annacalderon/Desktop/gENM/src/SDM/")\
+\
+#if the data is unwiedly, crop it. \
+YbrevRange = extent(-119.25,-112.75,33.25,38.25) # define the extent\
+BClim = crop(BClim, YbrevRange)\
+writeRaster(BClim, filename="/Users/annacalderon/Desktop/gENM/src/SDM/YbrevBC_2.5.grd", overwrite=T)\
+#....aaaaand, reload it. \
+BClim = brick("/Users/annacalderon/Desktop/gENM/src/SDM/YbrevBC_2.5.grd")\
+\
+#Now you can start plotting your data! YEYYYYYYYY. \
+\
+# this format plots the first (of 19) variables stored in BClim; change the 1 to 2-19 for the others\
+plot(BClim, 1, cex=0.5, legend=T, mar=par("mar"), xaxt="n", yaxt="n", main="Annual mean temperature (\'baC x 10)")\
+map("state", xlim=c(-119, -113), ylim=c(33.5, 38), fill=F, col="cornsilk", add=T)\
+# state names\
+text(x=-117.5, y=35.5, "California", col="black", cex=1)\
+text(x=-116, y=37.5, "Nevada", col="black", cex=1)\
+text(x=-113, y=34.5, "Arizona", col="black", cex=1)\
+text(x=-113, y=37.75, "Utah", col="black", cex=1)\
+# plot the presence points\
+points(locs$longitude, locs$latitude, col="slateblue4", pch=20, cex=0.5)\
+#...annnnddd...your pseudo-absence points. yus. \
+points(bg,col="snow2",pch=1,cex=0.4)\
+# add axes\
+axis(1,las=1)\
+axis(2,las=1)\
+#and a box\
+box()\
+\
+# pulling bioclim values\
+# for the subsampled presence points\
+Ybrev_bc = extract(BClim, subs[,c("longitude","latitude")]) \
+# for the pseudo-absence points\
+bg_bc = extract(BClim, bg) \
+\
+#You\'92ll probably want to build some useful dataframes\
+#with two columns of coordinates followed by the 19 bioclim variables.\
+#First, for the presence points:\
+Ybrev_bc = data.frame(lon=subs$longitude, lat=subs$latitude, Ybrev_bc)\
+\
+#And then for the pseudo-absences:\
+bgpoints = bg@coords\
+colnames(bgpoints) = c("lon","lat")\
+bg_bc = data.frame(cbind(bgpoints,bg_bc))\
+length(which(is.na(bg_bc$bio1))) # double-check for missing data\
+bg_bc = bg_bc[!is.na(bg_bc$bio1), ] # and pull out the missing lines\
+\
+group_p = kfold(Ybrev_bc, 5) # vector of group assignments splitting the Ybrev_bc into 5 groups\
+group_a = kfold(bg_bc, 5) # ditto for bg_bc\
+\
+#Building your species distribution models.\
+test=7\
+train_p = Ybrev_bc[group_p!=test, c("lon","lat")]\
+train_a = bg_bc[group_a!=test, c("lon","lat")]\
+test_p = Ybrev_bc[group_p==test, c("lon","lat")]\
+test_a = bg_bc[group_a==test, c("lon","lat")]\
+\
+me = maxent(BClim, p=train_p, a=train_a)\
+e = evaluate(test_p, test_a, me, BClim)\
+e\
+\
+pred_me = predict(me, BClim) # generate the predictions\
+\
+# make a nice plot\
+plot(pred_me, 1, cex=0.5, legend=T, mar=par("mar"), xaxt="n", yaxt="n", main="Predicted Presence of Joshua trees")\
+map("state", xlim=c(-119, -113), ylim=c(33.5, 38), fill=F, col="black", add=T)\
+\
+# state names\
+text(x=-117.5, y=35.5, "California", col="black", cex=1)\
+text(x=-116, y=37.5, "Nevada", col="black", cex=1)\
+text(x=-113, y=34.5, "Arizona", col="black", cex=1)\
+text(x=-113, y=37.75, "Utah", col="black", cex=1)\
+# presence points\
+points(locs$longitude, locs$latitude, col="darkgreen", pch=20, cex=0.5)\
+# and the pseudo-absence points\
+points(bg, cex=0.5, col="darkorange3")\
+\
+# add axes\
+axis(1,las=1)\
+axis(2,las=1)\
+box()}

@@ -1,0 +1,7 @@
+"node","name","value","type","scope","line.in","line.out"
+1,"warning.msg","\"" package ‘ggplot2’ was built under R version 3.2.4\""","Exception","ddg.library","5","NA"
+2,"warning.msg","\"" replacing previous import by ‘graphics::plot.default’ when loading ‘gstudio’\""","Exception","ddg.library","7","NA"
+3,"arapat","./study_popgraph_ddg/3-arapat.csv","Snapshot","ENV","NA","9 10"
+4,"data","./study_popgraph_ddg/4-data.csv","Snapshot","R_GlobalEnv","10","11"
+5,"centroid","./study_popgraph_ddg/5-centroid.csv","Snapshot","R_GlobalEnv","11","NA"
+6,"error.msg","\""Error in eval(expr, envir, enclos): could not find function \""get_map\"" \""","Exception","ddg.library","13","NA"

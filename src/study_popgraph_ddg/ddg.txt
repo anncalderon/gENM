@@ -1,0 +1,44 @@
+Architecture="x86_64"
+OperatingSystem="unix"
+Language="R"
+LanguageVersion="R version 3.2.3 (2015-12-10)"
+RDataTrackerVersion="2.24.1"
+Script="/Users/hermes/Projects/HF/projects/gENM/src/study_popgraph.R"
+ProcessFileTimestamp="2016-06-24T17.33.19EDT"
+WorkingDirectory="/Users/hermes/Projects/HF/projects/gENM/src"
+DDGDirectory="./study_popgraph_ddg"
+DateTime="2016-07-14T13.48.59EDT"
+InstalledPackages="ggplot2 2.1.0, gstudio 1.5.0, igraph 1.0.1, popgraph 1.4, RDataTracker 2.24.1"
+9
+Start p1 "1-study_popgraph.R" Value="study_popgraph.R" Time="0.101" Script="0" Line="NA";
+Operation p2 "2-installed.packages(\"popgraph\")" Value="installed.packages(\"popgraph\")" Time="0.107" Script="0" Line="4";
+CF p1 p2
+Operation p3 "3-library(popgraph)" Value="library(popgraph)" Time="2.987" Script="0" Line="5";
+CF p2 p3
+Exception d1 "1-warning.msg" Value="\" package ‘ggplot2’ was built under R version 3.2.4\"";
+DF p3 d1
+Operation p4 "4-require(ggplot2)" Value="require(ggplot2)" Time="3.202" Script="0" Line="6";
+CF p3 p4
+Operation p5 "5-require(gstudio)" Value="require(gstudio)" Time="7.43" Script="0" Line="7";
+CF p4 p5
+Exception d2 "2-warning.msg" Value="\" replacing previous import by ‘graphics::plot.default’ when loading ‘gstudio’\"";
+DF p5 d2
+Operation p6 "6-data(arapat)" Value="data(arapat)" Time="7.448" Script="0" Line="9";
+CF p5 p6
+Snapshot d3 "3-arapat [ENV]" Value="./study_popgraph_ddg/3-arapat.csv" Time="2016-07-14T13.49.08EDT";
+DF d3 p6
+Operation p7 "7-data <- unique(arapat[, c(2, 3, 6, 5)])" Value="data <- unique(arapat[, c(2, 3, 6, 5)])" Time="7.495" Script="0" Line="10";
+CF p6 p7
+DF d3 p7
+Snapshot d4 "4-data" Value="./study_popgraph_ddg/4-data.csv" Time="2016-07-14T13.49.08EDT";
+DF p7 d4
+Operation p8 "8-centroid <- apply(data[, 3:4], 2, mean)" Value="centroid <- apply(data[, 3:4], 2, mean)" Time="7.534" Script="0" Line="11";
+CF p7 p8
+DF d4 p8
+Snapshot d5 "5-centroid" Value="./study_popgraph_ddg/5-centroid.csv" Time="2016-07-14T13.49.08EDT";
+DF p8 d5
+Operation p9 "9-tryCatch" Value="tryCatch" Time="7.572" Script="0" Line="13";
+CF p8 p9
+Exception d6 "6-error.msg" Value="\"Error in eval(expr, envir, enclos): could not find function \"get_map\" \"";
+DF p9 d6
+

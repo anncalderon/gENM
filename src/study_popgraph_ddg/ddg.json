@@ -1,0 +1,243 @@
+{
+
+"prefix" : {
+"prov" : "http://www.w3.org/ns/prov#",
+"rdt" : "http://rdatatracker.org/"
+},
+"activity":{
+
+"p1" : {
+"rdt:name" : "study_popgraph.R",
+"rdt:type" : "Start",
+"rdt:elapsedTime" : "0.101",
+"rdt:scriptNum" : "0",
+"rdt:scriptLine" : "NA"
+} ,
+
+"p2" : {
+"rdt:name" : "installed.packages(\"popgraph\")",
+"rdt:type" : "Operation",
+"rdt:elapsedTime" : "0.107",
+"rdt:scriptNum" : "0",
+"rdt:scriptLine" : "4"
+} ,
+
+"p3" : {
+"rdt:name" : "library(popgraph)",
+"rdt:type" : "Operation",
+"rdt:elapsedTime" : "2.987",
+"rdt:scriptNum" : "0",
+"rdt:scriptLine" : "5"
+} ,
+
+"p4" : {
+"rdt:name" : "require(ggplot2)",
+"rdt:type" : "Operation",
+"rdt:elapsedTime" : "3.202",
+"rdt:scriptNum" : "0",
+"rdt:scriptLine" : "6"
+} ,
+
+"p5" : {
+"rdt:name" : "require(gstudio)",
+"rdt:type" : "Operation",
+"rdt:elapsedTime" : "7.43",
+"rdt:scriptNum" : "0",
+"rdt:scriptLine" : "7"
+} ,
+
+"p6" : {
+"rdt:name" : "data(arapat)",
+"rdt:type" : "Operation",
+"rdt:elapsedTime" : "7.448",
+"rdt:scriptNum" : "0",
+"rdt:scriptLine" : "9"
+} ,
+
+"p7" : {
+"rdt:name" : "data <- unique(arapat[, c(2, 3, 6, 5)])",
+"rdt:type" : "Operation",
+"rdt:elapsedTime" : "7.495",
+"rdt:scriptNum" : "0",
+"rdt:scriptLine" : "10"
+} ,
+
+"p8" : {
+"rdt:name" : "centroid <- apply(data[, 3:4], 2, mean)",
+"rdt:type" : "Operation",
+"rdt:elapsedTime" : "7.534",
+"rdt:scriptNum" : "0",
+"rdt:scriptLine" : "11"
+} ,
+
+"p9" : {
+"rdt:name" : "tryCatch",
+"rdt:type" : "Operation",
+"rdt:elapsedTime" : "7.572",
+"rdt:scriptNum" : "0",
+"rdt:scriptLine" : "13"
+} ,
+
+"rdt:environment" : {
+"rdt:architecture" : "x86_64",
+"rdt:operatingSystem" : "unix",
+"rdt:language" : "R",
+"rdt:rVersion" : "R version 3.2.3 (2015-12-10)",
+"rdt:script" : "/Users/hermes/Projects/HF/projects/gENM/src/study_popgraph.R",
+"rdt:scriptTimeStamp" : "2016-06-24T17.33.19EDT",
+"rdt:workingDirectory" : "/Users/hermes/Projects/HF/projects/gENM/src",
+"rdt:ddgDirectory" : "./study_popgraph_ddg",
+"rdt:ddgTimeStamp" : "2016-07-14T13.48.59EDT",
+"rdt:rdatatrackerVersion" : "2.24.1",
+"rdt:InstalledPackages": [
+	{"package":"ggplot2", "version":"2.1.0"},
+	{"package":"gstudio", "version":"1.5.0"},
+	{"package":"igraph", "version":"1.0.1"},
+	{"package":"popgraph", "version":"1.4"},
+	{"package":"RDataTracker", "version":"2.24.1"}]
+}},
+"entity":{
+
+"d1" : {
+"rdt:name" : "warning.msg",
+"rdt:value" : "\" package ‘ggplot2’ was built under R version 3.2.4\"",
+"rdt:type" : "Exception",
+"rdt:scope" : "ddg.library",
+"rdt:fromEnv" : "FALSE",
+"rdt:timestamp" : "",
+"rdt:location" : ""
+} ,
+
+"d2" : {
+"rdt:name" : "warning.msg",
+"rdt:value" : "\" replacing previous import by ‘graphics::plot.default’ when loading ‘gstudio’\"",
+"rdt:type" : "Exception",
+"rdt:scope" : "ddg.library",
+"rdt:fromEnv" : "FALSE",
+"rdt:timestamp" : "",
+"rdt:location" : ""
+} ,
+
+"d3" : {
+"rdt:name" : "arapat [ENV]",
+"rdt:value" : "./study_popgraph_ddg/3-arapat.csv",
+"rdt:type" : "Snapshot",
+"rdt:scope" : "R_GlobalEnv",
+"rdt:fromEnv" : "TRUE",
+"rdt:timestamp" : "",
+"rdt:location" : ""
+} ,
+
+"d4" : {
+"rdt:name" : "data",
+"rdt:value" : "./study_popgraph_ddg/4-data.csv",
+"rdt:type" : "Snapshot",
+"rdt:scope" : "R_GlobalEnv",
+"rdt:fromEnv" : "FALSE",
+"rdt:timestamp" : "",
+"rdt:location" : ""
+} ,
+
+"d5" : {
+"rdt:name" : "centroid",
+"rdt:value" : "./study_popgraph_ddg/5-centroid.csv",
+"rdt:type" : "Snapshot",
+"rdt:scope" : "R_GlobalEnv",
+"rdt:fromEnv" : "FALSE",
+"rdt:timestamp" : "",
+"rdt:location" : ""
+} ,
+
+"d6" : {
+"rdt:name" : "error.msg",
+"rdt:value" : "\"Error in eval(expr, envir, enclos): could not find function \"get_map\" \"",
+"rdt:type" : "Exception",
+"rdt:scope" : "ddg.library",
+"rdt:fromEnv" : "FALSE",
+"rdt:timestamp" : "",
+"rdt:location" : ""
+}},
+"wasInformedBy":{
+
+"e1" : {
+"prov:informant" : "p1",
+"prov:informed" : "p2"
+} ,
+
+"e2" : {
+"prov:informant" : "p2",
+"prov:informed" : "p3"
+} ,
+
+"e4" : {
+"prov:informant" : "p3",
+"prov:informed" : "p4"
+} ,
+
+"e5" : {
+"prov:informant" : "p4",
+"prov:informed" : "p5"
+} ,
+
+"e7" : {
+"prov:informant" : "p5",
+"prov:informed" : "p6"
+} ,
+
+"e9" : {
+"prov:informant" : "p6",
+"prov:informed" : "p7"
+} ,
+
+"e12" : {
+"prov:informant" : "p7",
+"prov:informed" : "p8"
+} ,
+
+"e15" : {
+"prov:informant" : "p8",
+"prov:informed" : "p9"
+}},
+"wasGeneratedBy":{
+
+"e3" : {
+"prov:entity" : "d1",
+"prov:activity" : "p3"
+} ,
+
+"e6" : {
+"prov:entity" : "d2",
+"prov:activity" : "p5"
+} ,
+
+"e11" : {
+"prov:entity" : "d4",
+"prov:activity" : "p7"
+} ,
+
+"e14" : {
+"prov:entity" : "d5",
+"prov:activity" : "p8"
+} ,
+
+"e16" : {
+"prov:entity" : "d6",
+"prov:activity" : "p9"
+}},
+"used":{
+
+"e8" : {
+"prov:activity" : "p6",
+"prov:entity" : "d3"
+} ,
+
+"e10" : {
+"prov:activity" : "p7",
+"prov:entity" : "d3"
+} ,
+
+"e13" : {
+"prov:activity" : "p8",
+"prov:entity" : "d4"
+}}
+}

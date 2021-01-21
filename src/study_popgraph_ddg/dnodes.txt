@@ -1,0 +1,7 @@
+ddg.type	ddg.num	ddg.name	ddg.value	ddg.scope	ddg.from.env	ddg.time	ddg.loc	ddg.current
+Exception	1	warning.msg	\" package ‘ggplot2’ was built under R version 3.2.4\"	ddg.library	FALSE			TRUE
+Exception	2	warning.msg	\" replacing previous import by ‘graphics::plot.default’ when loading ‘gstudio’\"	ddg.library	FALSE			TRUE
+Snapshot	3	arapat	./study_popgraph_ddg/3-arapat.csv	R_GlobalEnv	TRUE	2016-07-14T13.49.08EDT		TRUE
+Snapshot	4	data	./study_popgraph_ddg/4-data.csv	R_GlobalEnv	FALSE	2016-07-14T13.49.08EDT		TRUE
+Snapshot	5	centroid	./study_popgraph_ddg/5-centroid.csv	R_GlobalEnv	FALSE	2016-07-14T13.49.08EDT		TRUE
+Exception	6	error.msg	\"Error in eval(expr, envir, enclos): could not find function \"get_map\" \"	ddg.library	FALSE			TRUE

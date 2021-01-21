@@ -1,0 +1,111 @@
+ddg.type	ddg.num	ddg.name	ddg.value	ddg.scope	ddg.from.env	ddg.time	ddg.loc	ddg.current
+Snapshot	1	packs	./gENM_ddg/1-packs.csv	R_GlobalEnv	FALSE	2016-08-12T10.44.53EDT		TRUE
+Data	2	symSum	#ddg.function	R_GlobalEnv	FALSE			TRUE
+Data	3	altDiff	#ddg.function	R_GlobalEnv	FALSE			TRUE
+Data	4	m	#ddg.function	R_GlobalEnv	FALSE			TRUE
+Data	5	gClust	#ddg.function	R_GlobalEnv	FALSE			TRUE
+Data	6	ENM	#ddg.function	R_GlobalEnv	FALSE			TRUE
+Data	7	gENM	#ddg.function	R_GlobalEnv	FALSE			TRUE
+Data	8	gAnalysis	#ddg.function	R_GlobalEnv	FALSE			TRUE
+Data	9	gDensCurv	#ddg.function	R_GlobalEnv	FALSE			TRUE
+Snapshot	10	mintemp.2006	./gENM_ddg/10-mintemp.2006.txt	R_GlobalEnv	FALSE	2016-08-12T10.44.54EDT		TRUE
+Snapshot	11	mintemp.2050	./gENM_ddg/11-mintemp.2050.txt	R_GlobalEnv	FALSE	2016-08-12T10.44.55EDT		TRUE
+Snapshot	12	mintemp.2099	./gENM_ddg/12-mintemp.2099.txt	R_GlobalEnv	FALSE	2016-08-12T10.44.56EDT		TRUE
+File	13	RICTMEdukesnantucket.csv	./gENM_ddg/13-RICTMEdukesnantucket.csv	undefined	FALSE	2016-08-12T10.44.56EDT	/Users/hermes/Projects/HF/projects/gENM/data/RICTMEdukesnantucket.csv	TRUE
+Snapshot	14	gsp	./gENM_ddg/14-gsp.csv	R_GlobalEnv	FALSE	2016-08-12T10.44.56EDT		TRUE
+Snapshot	15	gsp	./gENM_ddg/15-gsp.csv	R_GlobalEnv	FALSE	2016-08-12T10.44.56EDT		TRUE
+Snapshot	16	x	./gENM_ddg/16-x.csv	0x7f9f11288548	FALSE	2016-08-12T10.44.56EDT		TRUE
+Snapshot	17	vp	./gENM_ddg/17-vp.txt	0x7f9f11288548	FALSE	2016-08-12T10.44.57EDT		TRUE
+Snapshot	18	x	./gENM_ddg/18-x.csv	0x7f9f11288548	FALSE	2016-08-12T10.44.58EDT		TRUE
+Snapshot	19	gc	./gENM_ddg/19-gc.csv	0x7f9f11288548	FALSE	2016-08-12T10.44.58EDT		TRUE
+Snapshot	20	y	./gENM_ddg/20-y.csv	0x7f9f11288548	FALSE	2016-08-12T10.44.58EDT		TRUE
+Snapshot	21	kc	./gENM_ddg/21-kc.txt	0x7f9f11288548	FALSE	2016-08-12T10.44.58EDT		TRUE
+Data	22	wss	12297.3504282078,852.128244466318,276.742360367648,160.441616409508,124.067546427854,83.9127805247054,50.2214028358114,27.1113757615262,19.3823213032813,17.1653232153729	0x7f9f11288548	FALSE			TRUE
+Data	23	dw	0.930706354231258,0.046789419188937,0.00945738227410097,0.00295787862548164,0.00326531850397964,0.00273972656838438,0.00187926880747215,0.000628513800868511,0.000180282582077441	0x7f9f11288548	FALSE			TRUE
+Data	24	nc	3	0x7f9f11288548	FALSE			TRUE
+Snapshot	25	gClust(x=gsp,vp=mintemp.2006) return	./gENM_ddg/25-gClust(x=gsp,vp=mintemp.2006) return.csv	R_GlobalEnv	FALSE	2016-08-12T10.44.58EDT		TRUE
+Snapshot	26	clust	./gENM_ddg/26-clust.csv	R_GlobalEnv	FALSE	2016-08-12T10.44.58EDT		TRUE
+Snapshot	27	x	./gENM_ddg/27-x.csv	0x7f9f0f9431c8	FALSE	2016-08-12T10.44.58EDT		TRUE
+Snapshot	28	clust	./gENM_ddg/28-clust.csv	0x7f9f0f9431c8	FALSE	2016-08-12T10.44.58EDT		TRUE
+Snapshot	29	p	./gENM_ddg/29-p.txt	0x7f9f0f9431c8	FALSE	2016-08-12T10.44.59EDT		TRUE
+Snapshot	30	df.gsp	./gENM_ddg/30-df.gsp.csv	0x7f9f0f9431c8	FALSE	2016-08-12T10.44.59EDT		TRUE
+Snapshot	31	groups	./gENM_ddg/31-groups.txt	0x7f9f0f9431c8	FALSE	2016-08-12T10.44.59EDT		TRUE
+Snapshot	32	p	./gENM_ddg/32-p.txt	0x7f9f118b8d80	FALSE	2016-08-12T10.45.00EDT		TRUE
+Snapshot	33	circ	./gENM_ddg/33-circ.txt	0x7f9f118b8d80	FALSE	2016-08-12T10.45.00EDT		TRUE
+Snapshot	34	random	./gENM_ddg/34-random.txt	0x7f9f118b8d80	FALSE	2016-08-12T10.45.00EDT		TRUE
+Snapshot	35	gsp_bc	./gENM_ddg/35-gsp_bc.csv	0x7f9f118b8d80	FALSE	2016-08-12T10.45.01EDT		TRUE
+Snapshot	36	gsp_bc	./gENM_ddg/36-gsp_bc.csv	0x7f9f118b8d80	FALSE	2016-08-12T10.45.01EDT		TRUE
+Snapshot	37	random_bc	./gENM_ddg/37-random_bc.csv	0x7f9f118b8d80	FALSE	2016-08-12T10.45.01EDT		TRUE
+Snapshot	38	random	./gENM_ddg/38-random.csv	0x7f9f118b8d80	FALSE	2016-08-12T10.45.01EDT		TRUE
+Snapshot	39	random	./gENM_ddg/39-random.csv	0x7f9f118b8d80	FALSE	2016-08-12T10.45.01EDT		TRUE
+Snapshot	40	random_bc	./gENM_ddg/40-random_bc.csv	0x7f9f118b8d80	FALSE	2016-08-12T10.45.01EDT		TRUE
+Snapshot	41	random_bc	./gENM_ddg/41-random_bc.csv	0x7f9f118b8d80	FALSE	2016-08-12T10.45.01EDT		TRUE
+Snapshot	42	me	./gENM_ddg/42-me.txt	0x7f9f118b8d80	FALSE	2016-08-12T10.45.07EDT		TRUE
+Snapshot	43	e	./gENM_ddg/43-e.txt	0x7f9f118b8d80	FALSE	2016-08-12T10.45.09EDT		TRUE
+Snapshot	44	pred_me	./gENM_ddg/44-pred_me.txt	0x7f9f118b8d80	FALSE	2016-08-12T10.45.11EDT		TRUE
+Snapshot	45	out	./gENM_ddg/45-out.txt	0x7f9f118b8d80	FALSE	2016-08-12T10.45.12EDT		TRUE
+Snapshot	46	FUN(X[[i]],...) return	./gENM_ddg/46-FUN(X[[i]],...) return.txt	R_GlobalEnv	FALSE	2016-08-12T10.45.12EDT		TRUE
+Snapshot	47	p	./gENM_ddg/47-p.txt	0x7f9f10d0b740	FALSE	2016-08-12T10.45.13EDT		TRUE
+Snapshot	48	circ	./gENM_ddg/48-circ.txt	0x7f9f10d0b740	FALSE	2016-08-12T10.45.16EDT		TRUE
+Snapshot	49	random	./gENM_ddg/49-random.txt	0x7f9f10d0b740	FALSE	2016-08-12T10.45.17EDT		TRUE
+Snapshot	50	gsp_bc	./gENM_ddg/50-gsp_bc.csv	0x7f9f10d0b740	FALSE	2016-08-12T10.45.17EDT		TRUE
+Snapshot	51	gsp_bc	./gENM_ddg/51-gsp_bc.csv	0x7f9f10d0b740	FALSE	2016-08-12T10.45.17EDT		TRUE
+Snapshot	52	random_bc	./gENM_ddg/52-random_bc.csv	0x7f9f10d0b740	FALSE	2016-08-12T10.45.17EDT		TRUE
+Snapshot	53	random	./gENM_ddg/53-random.csv	0x7f9f10d0b740	FALSE	2016-08-12T10.45.17EDT		TRUE
+Snapshot	54	random	./gENM_ddg/54-random.csv	0x7f9f10d0b740	FALSE	2016-08-12T10.45.17EDT		TRUE
+Snapshot	55	random_bc	./gENM_ddg/55-random_bc.csv	0x7f9f10d0b740	FALSE	2016-08-12T10.45.17EDT		TRUE
+Snapshot	56	random_bc	./gENM_ddg/56-random_bc.csv	0x7f9f10d0b740	FALSE	2016-08-12T10.45.17EDT		TRUE
+Snapshot	57	me	./gENM_ddg/57-me.txt	0x7f9f10d0b740	FALSE	2016-08-12T10.45.19EDT		TRUE
+Snapshot	58	e	./gENM_ddg/58-e.txt	0x7f9f10d0b740	FALSE	2016-08-12T10.45.21EDT		TRUE
+Snapshot	59	pred_me	./gENM_ddg/59-pred_me.txt	0x7f9f10d0b740	FALSE	2016-08-12T10.45.23EDT		TRUE
+Snapshot	60	out	./gENM_ddg/60-out.txt	0x7f9f10d0b740	FALSE	2016-08-12T10.45.23EDT		TRUE
+Snapshot	61	FUN(X[[i]],...) return	./gENM_ddg/61-FUN(X[[i]],...) return.txt	R_GlobalEnv	FALSE	2016-08-12T10.45.24EDT		TRUE
+Snapshot	62	p	./gENM_ddg/62-p.txt	0x7f9f112f3468	FALSE	2016-08-12T10.45.25EDT		TRUE
+Snapshot	63	circ	./gENM_ddg/63-circ.txt	0x7f9f112f3468	FALSE	2016-08-12T10.45.31EDT		TRUE
+Snapshot	64	random	./gENM_ddg/64-random.txt	0x7f9f112f3468	FALSE	2016-08-12T10.45.31EDT		TRUE
+Snapshot	65	gsp_bc	./gENM_ddg/65-gsp_bc.csv	0x7f9f112f3468	FALSE	2016-08-12T10.45.32EDT		TRUE
+Snapshot	66	gsp_bc	./gENM_ddg/66-gsp_bc.csv	0x7f9f112f3468	FALSE	2016-08-12T10.45.32EDT		TRUE
+Snapshot	67	random_bc	./gENM_ddg/67-random_bc.csv	0x7f9f112f3468	FALSE	2016-08-12T10.45.32EDT		TRUE
+Snapshot	68	random	./gENM_ddg/68-random.csv	0x7f9f112f3468	FALSE	2016-08-12T10.45.32EDT		TRUE
+Snapshot	69	random	./gENM_ddg/69-random.csv	0x7f9f112f3468	FALSE	2016-08-12T10.45.32EDT		TRUE
+Snapshot	70	random_bc	./gENM_ddg/70-random_bc.csv	0x7f9f112f3468	FALSE	2016-08-12T10.45.32EDT		TRUE
+Snapshot	71	random_bc	./gENM_ddg/71-random_bc.csv	0x7f9f112f3468	FALSE	2016-08-12T10.45.32EDT		TRUE
+Snapshot	72	me	./gENM_ddg/72-me.txt	0x7f9f112f3468	FALSE	2016-08-12T10.45.34EDT		TRUE
+Snapshot	73	e	./gENM_ddg/73-e.txt	0x7f9f112f3468	FALSE	2016-08-12T10.45.35EDT		TRUE
+Snapshot	74	pred_me	./gENM_ddg/74-pred_me.txt	0x7f9f112f3468	FALSE	2016-08-12T10.45.37EDT		TRUE
+Snapshot	75	out	./gENM_ddg/75-out.txt	0x7f9f112f3468	FALSE	2016-08-12T10.45.37EDT		TRUE
+Snapshot	76	FUN(X[[i]],...) return	./gENM_ddg/76-FUN(X[[i]],...) return.txt	R_GlobalEnv	FALSE	2016-08-12T10.45.38EDT		TRUE
+Snapshot	77	analysis	./gENM_ddg/77-analysis.txt	0x7f9f0f9431c8	FALSE	2016-08-12T10.45.38EDT		TRUE
+Snapshot	78	x	./gENM_ddg/78-x.csv	0x7f9f0f843cd8	FALSE	2016-08-12T10.45.38EDT		TRUE
+Snapshot	79	p	./gENM_ddg/79-p.txt	0x7f9f0f843cd8	FALSE	2016-08-12T10.45.39EDT		TRUE
+Snapshot	80	p	./gENM_ddg/80-p.txt	0x7f9f0f843cd8	FALSE	2016-08-12T10.45.40EDT		TRUE
+Snapshot	81	circ	./gENM_ddg/81-circ.txt	0x7f9f0f843cd8	FALSE	2016-08-12T10.45.50EDT		TRUE
+Snapshot	82	random	./gENM_ddg/82-random.txt	0x7f9f0f843cd8	FALSE	2016-08-12T10.45.50EDT		TRUE
+Snapshot	83	gsp_bc	./gENM_ddg/83-gsp_bc.csv	0x7f9f0f843cd8	FALSE	2016-08-12T10.45.51EDT		TRUE
+Snapshot	84	gsp_bc	./gENM_ddg/84-gsp_bc.csv	0x7f9f0f843cd8	FALSE	2016-08-12T10.45.51EDT		TRUE
+Snapshot	85	random_bc	./gENM_ddg/85-random_bc.csv	0x7f9f0f843cd8	FALSE	2016-08-12T10.45.51EDT		TRUE
+Snapshot	86	random	./gENM_ddg/86-random.csv	0x7f9f0f843cd8	FALSE	2016-08-12T10.45.51EDT		TRUE
+Snapshot	87	random	./gENM_ddg/87-random.csv	0x7f9f0f843cd8	FALSE	2016-08-12T10.45.51EDT		TRUE
+Snapshot	88	random_bc	./gENM_ddg/88-random_bc.csv	0x7f9f0f843cd8	FALSE	2016-08-12T10.45.51EDT		TRUE
+Snapshot	89	random_bc	./gENM_ddg/89-random_bc.csv	0x7f9f0f843cd8	FALSE	2016-08-12T10.45.51EDT		TRUE
+Snapshot	90	me	./gENM_ddg/90-me.txt	0x7f9f0f843cd8	FALSE	2016-08-12T10.45.53EDT		TRUE
+Snapshot	91	e	./gENM_ddg/91-e.txt	0x7f9f0f843cd8	FALSE	2016-08-12T10.45.54EDT		TRUE
+Snapshot	92	pred_me	./gENM_ddg/92-pred_me.txt	0x7f9f0f843cd8	FALSE	2016-08-12T10.45.58EDT		TRUE
+Snapshot	93	out	./gENM_ddg/93-out.txt	0x7f9f0f843cd8	FALSE	2016-08-12T10.45.58EDT		TRUE
+Snapshot	94	ENM(do.call(rbind,groups),p) return	./gENM_ddg/94-ENM(do.call(rbind,groups),p) return.txt	R_GlobalEnv	FALSE	2016-08-12T10.45.59EDT		TRUE
+Snapshot	95	enm.all	./gENM_ddg/95-enm.all.txt	0x7f9f0f9431c8	FALSE	2016-08-12T10.45.59EDT		TRUE
+Snapshot	96	out	./gENM_ddg/96-out.txt	0x7f9f0f9431c8	FALSE	2016-08-12T10.46.00EDT		TRUE
+Snapshot	97	gENM(x=gsp,clust=clust,p=mintemp.2006) return	./gENM_ddg/97-gENM(x=gsp,clust=clust,p=mintemp.2006) return.txt	R_GlobalEnv	FALSE	2016-08-12T10.46.00EDT		TRUE
+Snapshot	98	out	./gENM_ddg/98-out.txt	R_GlobalEnv	FALSE	2016-08-12T10.46.00EDT		TRUE
+Snapshot	99	x	./gENM_ddg/99-x.txt	0x7f9f0de0c4b0	FALSE	2016-08-12T10.46.00EDT		TRUE
+File	100	gENM.jpeg	./gENM_ddg/100-gENM.jpeg	undefined	FALSE	2016-08-12T10.46.01EDT	/Users/hermes/Projects/HF/projects/gENM/results/gENM.jpeg	TRUE
+Snapshot	101	auc	./gENM_ddg/101-auc.csv	0x7f9f0de0c4b0	FALSE	2016-08-12T10.46.01EDT		TRUE
+Snapshot	102	cor	./gENM_ddg/102-cor.csv	0x7f9f0de0c4b0	FALSE	2016-08-12T10.46.01EDT		TRUE
+Snapshot	103	out	./gENM_ddg/103-out.csv	0x7f9f0de0c4b0	FALSE	2016-08-12T10.46.01EDT		TRUE
+Snapshot	104	gAnalysis(x=out) return	./gENM_ddg/104-gAnalysis(x=out) return.csv	R_GlobalEnv	FALSE	2016-08-12T10.46.01EDT		TRUE
+Snapshot	105	x	./gENM_ddg/105-x.csv	0x7f9f0d1ca4b0	FALSE	2016-08-12T10.46.01EDT		TRUE
+Snapshot	106	p	./gENM_ddg/106-p.txt	0x7f9f0d1ca4b0	FALSE	2016-08-12T10.46.02EDT		TRUE
+Snapshot	107	pr	./gENM_ddg/107-pr.txt	0x7f9f0d1ca4b0	FALSE	2016-08-12T10.46.04EDT		TRUE
+Data	108	gc	#ddg.function	0x7f9f0d1ca4b0	FALSE			TRUE
+Snapshot	109	mt.2006	./gENM_ddg/109-mt.2006.csv	0x7f9f0d1ca4b0	FALSE	2016-08-12T10.46.05EDT		TRUE
+Exception	110	error.msg	\"Error in unique.default(x, nmax = nmax): unique() applies only to vectors \"	ddg.library	FALSE			TRUE

@@ -1,0 +1,8 @@
+ddg.call	return.used	return.node.id
+gClust(x=gsp,vp=mintemp.2006)	TRUE	25
+FUN(X[[i]],...)	FALSE	46
+FUN(X[[i]],...)	FALSE	61
+FUN(X[[i]],...)	FALSE	76
+ENM(do.call(rbind,groups),p)	TRUE	94
+gENM(x=gsp,clust=clust,p=mintemp.2006)	TRUE	97
+gAnalysis(x=out)	FALSE	104

@@ -1,0 +1,156 @@
+ddg.type	ddg.num	ddg.name	ddg.value	ddg.return.linked	ddg.auto.created	ddg.time	ddg.snum	ddg.lnum
+Start	1	gENM.R	gENM.R	FALSE	FALSE	0.195999999999998	0	NA
+Start	2	helpers.R	helpers.R	FALSE	FALSE	0.533999999999999	1	NA
+Operation	3	packs <- c("gdistance", "fossil", "igraph", "rgbif", "mappro	packs <- c("gdistance", "fossil", "igraph", "rgbif", "mappro	FALSE	FALSE	0.542999999999999	1	1
+Operation	4	lapply(packs[!(packs %in% installed.packages()[, "Package"])	lapply(packs[!(packs %in% installed.packages()[, "Package"])	FALSE	FALSE	0.675000000000004	1	4
+Operation	5	all(unlist(lapply(packs, require, character.only = TRUE, qui	all(unlist(lapply(packs, require, character.only = TRUE, qui	FALSE	FALSE	0.745999999999995	1	5
+Operation	6	symSum <- function(x = "matrix", zero.diag = TRUE) {    if (	symSum <- function(x = "matrix", zero.diag = TRUE) {    if (	FALSE	FALSE	0.82	1	11
+Operation	7	altDiff <- function(x) {    x[2] - x[1]}	altDiff <- function(x) {    x[2] - x[1]}	FALSE	FALSE	0.841000000000001	1	23
+Operation	8	m <- function(scd) {    (1 - (scd/max(scd)))}	m <- function(scd) {    (1 - (scd/max(scd)))}	FALSE	FALSE	0.857999999999997	1	26
+Operation	9	gClust <- function(x = "coordinates", vp = "vector predictor	gClust <- function(x = "coordinates", vp = "vector predictor	FALSE	FALSE	0.921999999999997	1	40
+Operation	10	ENM <- function(x = "coordinates", p = "predictors", c.rad =	ENM <- function(x = "coordinates", p = "predictors", c.rad =	FALSE	FALSE	0.980999999999995	1	104
+Operation	11	gENM <- function(x = "coordinates", clust = "gen clusters", 	gENM <- function(x = "coordinates", clust = "gen clusters", 	FALSE	FALSE	1.015	1	165
+Operation	12	gAnalysis <- function(x = "gENM output", filename = "../resu	gAnalysis <- function(x = "gENM output", filename = "../resu	FALSE	FALSE	1.052	1	185
+Operation	13	gDensCurv <- function(x = "coordinates", p = "mintemp.2006",	gDensCurv <- function(x = "coordinates", p = "mintemp.2006",	FALSE	FALSE	1.113	1	202
+Finish	14	helpers.R	helpers.R	FALSE	FALSE	1.14	1	NA
+Operation	15	mintemp.2006 <- raster("../data/01_01_2006.tiff")	mintemp.2006 <- raster("../data/01_01_2006.tiff")	FALSE	FALSE	1.161	0	24
+Operation	16	mintemp.2050 <- raster("../data/01_01_2050.tiff")	mintemp.2050 <- raster("../data/01_01_2050.tiff")	FALSE	FALSE	2.215	0	25
+Operation	17	mintemp.2099 <- raster("../data/01_01_2099.tiff")	mintemp.2099 <- raster("../data/01_01_2099.tiff")	FALSE	FALSE	2.96	0	26
+Operation	18	gsp <- read.csv("../data/RICTMEdukesnantucket.csv")	gsp <- read.csv("../data/RICTMEdukesnantucket.csv")	FALSE	FALSE	3.691	0	28
+Operation	19	if (is.matrix(gsp) == FALSE) {    gsp <- data.matrix(gsp)}	if (is.matrix(gsp) == FALSE) {    gsp <- data.matrix(gsp)}	FALSE	FALSE	3.728	0	29
+Start	20	clust <- gClust(x = gsp, vp = mintemp.2006)	clust <- gClust(x = gsp, vp = mintemp.2006)	FALSE	FALSE	3.76499999999999	0	33
+Start	21	gClust(x = gsp, vp = mintemp.2006)	gClust(x = gsp, vp = mintemp.2006)	FALSE	FALSE	3.797	0	33
+Binding	22	x  <-  gsp		FALSE	FALSE	3.799	0	33
+Binding	23	vp  <-  mintemp.2006		FALSE	FALSE	3.825	0	33
+Operation	24	gClust	gClust	FALSE	FALSE	4.542	0	33
+Operation	25	set.seed(1)	set.seed(1)	FALSE	FALSE	4.58	0	33
+Operation	26	if (!km) {    if (!(is.matrix(x))) {        x <- as.matrix(x	if (!km) {    if (!(is.matrix(x))) {        x <- as.matrix(x	FALSE	FALSE	4.99299999999999	0	33
+Operation	27	gc	gc	FALSE	FALSE	5.38	0	33
+Operation	28	return (gc)	return (gc)	TRUE	FALSE	5.405	0	33
+Finish	29	gClust(x = gsp, vp = mintemp.2006)	gClust(x = gsp, vp = mintemp.2006)	FALSE	FALSE	5.423	0	33
+Finish	30	clust <- gClust(x = gsp, vp = mintemp.2006)	clust <- gClust(x = gsp, vp = mintemp.2006)	FALSE	FALSE	5.425	0	33
+Start	31	out <- gENM(x = gsp, clust = clust, p = mintemp.2006)	out <- gENM(x = gsp, clust = clust, p = mintemp.2006)	FALSE	FALSE	5.44199999999999	0	34
+Start	32	gENM(x = gsp, clust = clust, p = mintemp.2006)	gENM(x = gsp, clust = clust, p = mintemp.2006)	FALSE	FALSE	5.483	0	34
+Binding	33	x  <-  gsp		FALSE	FALSE	5.485	0	34
+Binding	34	clust  <-  clust		FALSE	FALSE	5.511	0	34
+Binding	35	p  <-  mintemp.2006		FALSE	FALSE	5.53	0	34
+Operation	36	gENM	gENM	FALSE	FALSE	6.256	0	34
+Operation	37	df.gsp <- data.frame(x)	df.gsp <- data.frame(x)	FALSE	FALSE	6.293	0	34
+Operation	38	groups <- split(df.gsp, clust)	groups <- split(df.gsp, clust)	FALSE	FALSE	6.328	0	34
+Start	39	analysis <- (lapply(groups, ENM, p))	analysis <- (lapply(groups, ENM, p))	FALSE	FALSE	6.404	0	34
+Start	40	FUN(X[[i]], ...)	FUN(X[[i]], ...)	FALSE	FALSE	6.432	0	34
+Binding	41	...  <-  X[[i]]		FALSE	FALSE	6.435	0	34
+Binding	42	...  <-  ...		FALSE	FALSE	6.447	0	34
+Operation	43	FUN	FUN	FALSE	FALSE	6.45200000000001	0	34
+Operation	44	if (class(p) == "RasterLayer") {    p <- stack(p)}	if (class(p) == "RasterLayer") {    p <- stack(p)}	FALSE	FALSE	6.462	0	34
+Operation	45	set.seed(seed)	set.seed(seed)	FALSE	FALSE	7.214	0	34
+Operation	46	circ <- circles(x, d = c.rad, lonlat = T)	circ <- circles(x, d = c.rad, lonlat = T)	FALSE	FALSE	7.814	0	34
+Operation	47	random <- spsample(circ@polygons, n, type = "random", iter =	random <- spsample(circ@polygons, n, type = "random", iter =	FALSE	FALSE	8.039	0	34
+Operation	48	gsp_bc <- extract(p, x)	gsp_bc <- extract(p, x)	FALSE	FALSE	8.46299999999999	0	34
+Operation	49	gsp_bc <- data.frame(cbind(x, env = gsp_bc))	gsp_bc <- data.frame(cbind(x, env = gsp_bc))	FALSE	FALSE	8.497	0	34
+Operation	50	random_bc <- extract(p, random)	random_bc <- extract(p, random)	FALSE	FALSE	8.891	0	34
+Operation	51	random <- random@coords	random <- random@coords	FALSE	FALSE	8.93	0	34
+Operation	52	colnames(random) <- c("lon", "lat")	colnames(random) <- c("lon", "lat")	FALSE	FALSE	8.96299999999999	0	34
+Operation	53	random_bc <- data.frame(cbind(random, env = random_bc))	random_bc <- data.frame(cbind(random, env = random_bc))	FALSE	FALSE	8.995	0	34
+Operation	54	random_bc <- random_bc[!is.na(random_bc[, 3]), ]	random_bc <- random_bc[!is.na(random_bc[, 3]), ]	FALSE	FALSE	9.044	0	34
+Operation	55	me <- maxent(p, gsp_bc[, c("lon", "lat")], random_bc[, c("lo	me <- maxent(p, gsp_bc[, c("lon", "lat")], random_bc[, c("lo	FALSE	FALSE	13.82	0	34
+Operation	56	e <- evaluate(gsp_bc[, c("lon", "lat")], random_bc[, c("lon"	e <- evaluate(gsp_bc[, c("lon", "lat")], random_bc[, c("lon"	FALSE	FALSE	14.885	0	34
+Operation	57	pred_me <- predict(me, p)	pred_me <- predict(me, p)	FALSE	FALSE	16.646	0	34
+Operation	58	out <- list(eval = e, pred = pred_me, model = me)	out <- list(eval = e, pred = pred_me, model = me)	FALSE	FALSE	17.025	0	34
+Operation	59	out	out	FALSE	FALSE	17.243	0	34
+Operation	60	return (out)	return (out)	TRUE	FALSE	17.435	0	34
+Finish	61	FUN(X[[i]], ...)	FUN(X[[i]], ...)	FALSE	FALSE	17.448	0	34
+Start	62	FUN(X[[i]], ...)	FUN(X[[i]], ...)	FALSE	FALSE	17.45	0	34
+Binding	63	...  <-  X[[i]]		FALSE	FALSE	17.452	0	34
+Binding	64	...  <-  ...		FALSE	FALSE	17.465	0	34
+Operation	65	FUN	FUN	FALSE	FALSE	17.471	0	34
+Operation	66	if (class(p) == "RasterLayer") {    p <- stack(p)}	if (class(p) == "RasterLayer") {    p <- stack(p)}	FALSE	FALSE	17.481	0	34
+Operation	67	set.seed(seed)	set.seed(seed)	FALSE	FALSE	18.235	0	34
+Operation	68	circ <- circles(x, d = c.rad, lonlat = T)	circ <- circles(x, d = c.rad, lonlat = T)	FALSE	FALSE	21.089	0	34
+Operation	69	random <- spsample(circ@polygons, n, type = "random", iter =	random <- spsample(circ@polygons, n, type = "random", iter =	FALSE	FALSE	21.18	0	34
+Operation	70	gsp_bc <- extract(p, x)	gsp_bc <- extract(p, x)	FALSE	FALSE	21.608	0	34
+Operation	71	gsp_bc <- data.frame(cbind(x, env = gsp_bc))	gsp_bc <- data.frame(cbind(x, env = gsp_bc))	FALSE	FALSE	21.638	0	34
+Operation	72	random_bc <- extract(p, random)	random_bc <- extract(p, random)	FALSE	FALSE	22.036	0	34
+Operation	73	random <- random@coords	random <- random@coords	FALSE	FALSE	22.068	0	34
+Operation	74	colnames(random) <- c("lon", "lat")	colnames(random) <- c("lon", "lat")	FALSE	FALSE	22.098	0	34
+Operation	75	random_bc <- data.frame(cbind(random, env = random_bc))	random_bc <- data.frame(cbind(random, env = random_bc))	FALSE	FALSE	22.128	0	34
+Operation	76	random_bc <- random_bc[!is.na(random_bc[, 3]), ]	random_bc <- random_bc[!is.na(random_bc[, 3]), ]	FALSE	FALSE	22.171	0	34
+Operation	77	me <- maxent(p, gsp_bc[, c("lon", "lat")], random_bc[, c("lo	me <- maxent(p, gsp_bc[, c("lon", "lat")], random_bc[, c("lo	FALSE	FALSE	23.756	0	34
+Operation	78	e <- evaluate(gsp_bc[, c("lon", "lat")], random_bc[, c("lon"	e <- evaluate(gsp_bc[, c("lon", "lat")], random_bc[, c("lon"	FALSE	FALSE	24.867	0	34
+Operation	79	pred_me <- predict(me, p)	pred_me <- predict(me, p)	FALSE	FALSE	26.451	0	34
+Operation	80	out <- list(eval = e, pred = pred_me, model = me)	out <- list(eval = e, pred = pred_me, model = me)	FALSE	FALSE	26.856	0	34
+Operation	81	out	out	FALSE	FALSE	27.074	0	34
+Operation	82	return (out)	return (out)	TRUE	FALSE	27.274	0	34
+Finish	83	FUN(X[[i]], ...)	FUN(X[[i]], ...)	FALSE	FALSE	27.283	0	34
+Start	84	FUN(X[[i]], ...)	FUN(X[[i]], ...)	FALSE	FALSE	27.286	0	34
+Binding	85	...  <-  X[[i]]		FALSE	FALSE	27.288	0	34
+Binding	86	...  <-  ...		FALSE	FALSE	27.304	0	34
+Operation	87	FUN	FUN	FALSE	FALSE	27.31	0	34
+Operation	88	if (class(p) == "RasterLayer") {    p <- stack(p)}	if (class(p) == "RasterLayer") {    p <- stack(p)}	FALSE	FALSE	27.321	0	34
+Operation	89	set.seed(seed)	set.seed(seed)	FALSE	FALSE	28.066	0	34
+Operation	90	circ <- circles(x, d = c.rad, lonlat = T)	circ <- circles(x, d = c.rad, lonlat = T)	FALSE	FALSE	33.934	0	34
+Operation	91	random <- spsample(circ@polygons, n, type = "random", iter =	random <- spsample(circ@polygons, n, type = "random", iter =	FALSE	FALSE	34.461	0	34
+Operation	92	gsp_bc <- extract(p, x)	gsp_bc <- extract(p, x)	FALSE	FALSE	34.883	0	34
+Operation	93	gsp_bc <- data.frame(cbind(x, env = gsp_bc))	gsp_bc <- data.frame(cbind(x, env = gsp_bc))	FALSE	FALSE	34.91	0	34
+Operation	94	random_bc <- extract(p, random)	random_bc <- extract(p, random)	FALSE	FALSE	35.304	0	34
+Operation	95	random <- random@coords	random <- random@coords	FALSE	FALSE	35.333	0	34
+Operation	96	colnames(random) <- c("lon", "lat")	colnames(random) <- c("lon", "lat")	FALSE	FALSE	35.359	0	34
+Operation	97	random_bc <- data.frame(cbind(random, env = random_bc))	random_bc <- data.frame(cbind(random, env = random_bc))	FALSE	FALSE	35.385	0	34
+Operation	98	random_bc <- random_bc[!is.na(random_bc[, 3]), ]	random_bc <- random_bc[!is.na(random_bc[, 3]), ]	FALSE	FALSE	35.422	0	34
+Operation	99	me <- maxent(p, gsp_bc[, c("lon", "lat")], random_bc[, c("lo	me <- maxent(p, gsp_bc[, c("lon", "lat")], random_bc[, c("lo	FALSE	FALSE	36.928	0	34
+Operation	100	e <- evaluate(gsp_bc[, c("lon", "lat")], random_bc[, c("lon"	e <- evaluate(gsp_bc[, c("lon", "lat")], random_bc[, c("lon"	FALSE	FALSE	37.839	0	34
+Operation	101	pred_me <- predict(me, p)	pred_me <- predict(me, p)	FALSE	FALSE	39.432	0	34
+Operation	102	out <- list(eval = e, pred = pred_me, model = me)	out <- list(eval = e, pred = pred_me, model = me)	FALSE	FALSE	39.826	0	34
+Operation	103	out	out	FALSE	FALSE	40.018	0	34
+Operation	104	return (out)	return (out)	TRUE	FALSE	40.186	0	34
+Finish	105	FUN(X[[i]], ...)	FUN(X[[i]], ...)	FALSE	FALSE	40.204	0	34
+Finish	106	analysis <- (lapply(groups, ENM, p))	analysis <- (lapply(groups, ENM, p))	FALSE	FALSE	40.206	0	34
+Start	107	enm.all <- list(ENM(do.call(rbind, groups), p))	enm.all <- list(ENM(do.call(rbind, groups), p))	FALSE	FALSE	40.224	0	34
+Start	108	ENM(do.call(rbind, groups), p)	ENM(do.call(rbind, groups), p)	FALSE	FALSE	40.284	0	34
+Binding	109	x  <-  do.call(rbind, groups)		FALSE	FALSE	40.287	0	34
+Binding	110	p  <-  p		FALSE	FALSE	40.328	0	34
+Operation	111	ENM	ENM	FALSE	FALSE	41.073	0	34
+Operation	112	if (class(p) == "RasterLayer") {    p <- stack(p)}	if (class(p) == "RasterLayer") {    p <- stack(p)}	FALSE	FALSE	41.109	0	34
+Operation	113	set.seed(seed)	set.seed(seed)	FALSE	FALSE	41.862	0	34
+Operation	114	circ <- circles(x, d = c.rad, lonlat = T)	circ <- circles(x, d = c.rad, lonlat = T)	FALSE	FALSE	51.412	0	34
+Operation	115	random <- spsample(circ@polygons, n, type = "random", iter =	random <- spsample(circ@polygons, n, type = "random", iter =	FALSE	FALSE	51.738	0	34
+Operation	116	gsp_bc <- extract(p, x)	gsp_bc <- extract(p, x)	FALSE	FALSE	52.182	0	34
+Operation	117	gsp_bc <- data.frame(cbind(x, env = gsp_bc))	gsp_bc <- data.frame(cbind(x, env = gsp_bc))	FALSE	FALSE	52.224	0	34
+Operation	118	random_bc <- extract(p, random)	random_bc <- extract(p, random)	FALSE	FALSE	52.629	0	34
+Operation	119	random <- random@coords	random <- random@coords	FALSE	FALSE	52.67	0	34
+Operation	120	colnames(random) <- c("lon", "lat")	colnames(random) <- c("lon", "lat")	FALSE	FALSE	52.704	0	34
+Operation	121	random_bc <- data.frame(cbind(random, env = random_bc))	random_bc <- data.frame(cbind(random, env = random_bc))	FALSE	FALSE	52.737	0	34
+Operation	122	random_bc <- random_bc[!is.na(random_bc[, 3]), ]	random_bc <- random_bc[!is.na(random_bc[, 3]), ]	FALSE	FALSE	52.791	0	34
+Operation	123	me <- maxent(p, gsp_bc[, c("lon", "lat")], random_bc[, c("lo	me <- maxent(p, gsp_bc[, c("lon", "lat")], random_bc[, c("lo	FALSE	FALSE	54.209	0	34
+Operation	124	e <- evaluate(gsp_bc[, c("lon", "lat")], random_bc[, c("lon"	e <- evaluate(gsp_bc[, c("lon", "lat")], random_bc[, c("lon"	FALSE	FALSE	55.133	0	34
+Operation	125	pred_me <- predict(me, p)	pred_me <- predict(me, p)	FALSE	FALSE	56.835	0	34
+Operation	126	out <- list(eval = e, pred = pred_me, model = me)	out <- list(eval = e, pred = pred_me, model = me)	FALSE	FALSE	57.216	0	34
+Operation	127	out	out	FALSE	FALSE	57.419	0	34
+Operation	128	return (out)	return (out)	TRUE	FALSE	57.599	0	34
+Finish	129	ENM(do.call(rbind, groups), p)	ENM(do.call(rbind, groups), p)	FALSE	FALSE	57.613	0	34
+Finish	130	enm.all <- list(ENM(do.call(rbind, groups), p))	enm.all <- list(ENM(do.call(rbind, groups), p))	FALSE	FALSE	57.616	0	34
+Operation	131	out <- append(enm.all, analysis)	out <- append(enm.all, analysis)	FALSE	FALSE	57.632	0	34
+Operation	132	return (out <- append(enm.all, analysis))	return (out <- append(enm.all, analysis))	TRUE	FALSE	57.688	0	34
+Finish	133	gENM(x = gsp, clust = clust, p = mintemp.2006)	gENM(x = gsp, clust = clust, p = mintemp.2006)	FALSE	FALSE	57.718	0	34
+Finish	134	out <- gENM(x = gsp, clust = clust, p = mintemp.2006)	out <- gENM(x = gsp, clust = clust, p = mintemp.2006)	FALSE	FALSE	57.72	0	34
+Start	135	gAnalysis(x = out)	gAnalysis(x = out)	FALSE	FALSE	57.738	0	35
+Binding	136	x  <-  out		FALSE	FALSE	57.741	0	35
+Operation	137	gAnalysis	gAnalysis	FALSE	FALSE	57.758	0	35
+Operation	138	jpeg(filename = filename, width = 1700, height = 1700, units	jpeg(filename = filename, width = 1700, height = 1700, units	FALSE	FALSE	57.796	0	35
+Operation	139	par(mfrow = mfrow, oma = rep(0, 4), omi = rep(0, 4), bty = "	par(mfrow = mfrow, oma = rep(0, 4), omi = rep(0, 4), bty = "	FALSE	FALSE	57.818	0	35
+Operation	140	for (i in 1:length(x)) {    zoom(x[[i]]$pred, ext = ext, xax	for (i in 1:length(x)) {    zoom(x[[i]]$pred, ext = ext, xax	FALSE	FALSE	58.319	0	35
+Operation	141	dev.off()	dev.off()	FALSE	FALSE	58.435	0	35
+Operation	142	auc <- unlist(lapply(x, function(x) x$eval@auc))	auc <- unlist(lapply(x, function(x) x$eval@auc))	FALSE	FALSE	58.458	0	35
+Operation	143	cor <- unlist(lapply(x, function(x) x$eval@cor))	cor <- unlist(lapply(x, function(x) x$eval@cor))	FALSE	FALSE	58.499	0	35
+Operation	144	out <- data.frame(auc, cor)	out <- data.frame(auc, cor)	FALSE	FALSE	58.547	0	35
+Operation	145	out	out	FALSE	FALSE	58.593	0	35
+Operation	146	return (out)	return (out)	TRUE	FALSE	58.615	0	35
+Finish	147	gAnalysis(x = out)	gAnalysis(x = out)	FALSE	FALSE	58.634	0	35
+Start	148	gDensCurv(x = gsp, p = mintemp.2006, pr = mintemp.2006, gc)	gDensCurv(x = gsp, p = mintemp.2006, pr = mintemp.2006, gc)	FALSE	FALSE	58.638	0	38
+Binding	149	x  <-  gsp		FALSE	FALSE	58.641	0	38
+Binding	150	p  <-  mintemp.2006		FALSE	FALSE	58.675	0	38
+Binding	151	pr  <-  mintemp.2006		FALSE	FALSE	59.453	0	38
+Binding	152	gc  <-  gc		FALSE	FALSE	60.224	0	38
+Operation	153	gDensCurv	gDensCurv	FALSE	FALSE	60.242	0	38
+Operation	154	mt.2006 <- extract(p, x)	mt.2006 <- extract(p, x)	FALSE	FALSE	60.676	0	38
+Operation	155	tryCatch	tryCatch	FALSE	FALSE	60.722	0	38

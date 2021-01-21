@@ -1,0 +1,709 @@
+Architecture="x86_64"
+OperatingSystem="unix"
+Language="R"
+LanguageVersion="R version 3.3.1 (2016-06-21)"
+RDataTrackerVersion="2.24.1"
+Script="/Users/hermes/Projects/HF/projects/gENM/src/gENM.R"
+ProcessFileTimestamp="2016-08-12T10.33.28EDT"
+WorkingDirectory="/Users/hermes/Projects/HF/projects/gENM/src"
+DDGDirectory="./gENM_ddg"
+DateTime="2016-08-12T10.44.52EDT"
+InstalledPackages="dismo 1.1-1, FedData 2.0.8, foreign 0.8-66, fossil 0.3.7, gdistance 1.1-9, ggplot2 2.1.0, igraph 1.0.1, mapdata 2.2-6, mapproj 1.2-4, maps 3.1.1, maptools 0.8-39, Matrix 1.2-6, raster 2.5-8, RDataTracker 2.24.1, reshape2 1.4.1, rgbif 0.9.4, rgdal 1.1-10, rgeos 0.3-19, rJava 0.9-8, shapefiles 0.7, sp 1.2-3"
+155
+Start p1 "1-gENM.R" Value="gENM.R" Time="0.195999999999998" Script="0" Line="NA";
+Start p2 "2-helpers.R" Value="helpers.R" Time="0.533999999999999" Script="1" Line="NA";
+CF p1 p2
+Operation p3 "3-packs <- c(\"gdistance\", \"fossil\", \"igraph\", \"rgbif\", \"mappro" Value="packs <- c(\"gdistance\", \"fossil\", \"igraph\", \"rgbif\", \"mappro" Time="0.542999999999999" Script="1" Line="1";
+CF p2 p3
+Snapshot d1 "1-packs" Value="./gENM_ddg/1-packs.csv" Time="2016-08-12T10.44.53EDT";
+DF p3 d1
+Operation p4 "4-lapply(packs[!(packs %in% installed.packages()[, \"Package\"])" Value="lapply(packs[!(packs %in% installed.packages()[, \"Package\"])" Time="0.675000000000004" Script="1" Line="4";
+CF p3 p4
+DF d1 p4
+Operation p5 "5-all(unlist(lapply(packs, require, character.only = TRUE, qui" Value="all(unlist(lapply(packs, require, character.only = TRUE, qui" Time="0.745999999999995" Script="1" Line="5";
+CF p4 p5
+DF d1 p5
+Operation p6 "6-symSum <- function(x = \"matrix\", zero.diag = TRUE) {    if (" Value="symSum <- function(x = \"matrix\", zero.diag = TRUE) {    if (" Time="0.82" Script="1" Line="11";
+CF p5 p6
+Data d2 "2-symSum" Value="#ddg.function";
+DF p6 d2
+Operation p7 "7-altDiff <- function(x) {    x[2] - x[1]}" Value="altDiff <- function(x) {    x[2] - x[1]}" Time="0.841000000000001" Script="1" Line="23";
+CF p6 p7
+Data d3 "3-altDiff" Value="#ddg.function";
+DF p7 d3
+Operation p8 "8-m <- function(scd) {    (1 - (scd/max(scd)))}" Value="m <- function(scd) {    (1 - (scd/max(scd)))}" Time="0.857999999999997" Script="1" Line="26";
+CF p7 p8
+Data d4 "4-m" Value="#ddg.function";
+DF p8 d4
+Operation p9 "9-gClust <- function(x = \"coordinates\", vp = \"vector predictor" Value="gClust <- function(x = \"coordinates\", vp = \"vector predictor" Time="0.921999999999997" Script="1" Line="40";
+CF p8 p9
+Data d5 "5-gClust" Value="#ddg.function";
+DF p9 d5
+Operation p10 "10-ENM <- function(x = \"coordinates\", p = \"predictors\", c.rad =" Value="ENM <- function(x = \"coordinates\", p = \"predictors\", c.rad =" Time="0.980999999999995" Script="1" Line="104";
+CF p9 p10
+Data d6 "6-ENM" Value="#ddg.function";
+DF p10 d6
+Operation p11 "11-gENM <- function(x = \"coordinates\", clust = \"gen clusters\", " Value="gENM <- function(x = \"coordinates\", clust = \"gen clusters\", " Time="1.015" Script="1" Line="165";
+CF p10 p11
+Data d7 "7-gENM" Value="#ddg.function";
+DF p11 d7
+Operation p12 "12-gAnalysis <- function(x = \"gENM output\", filename = \"../resu" Value="gAnalysis <- function(x = \"gENM output\", filename = \"../resu" Time="1.052" Script="1" Line="185";
+CF p11 p12
+Data d8 "8-gAnalysis" Value="#ddg.function";
+DF p12 d8
+Operation p13 "13-gDensCurv <- function(x = \"coordinates\", p = \"mintemp.2006\"," Value="gDensCurv <- function(x = \"coordinates\", p = \"mintemp.2006\"," Time="1.113" Script="1" Line="202";
+CF p12 p13
+Data d9 "9-gDensCurv" Value="#ddg.function";
+DF p13 d9
+Finish p14 "14-helpers.R" Value="helpers.R" Time="1.14" Script="1" Line="NA";
+CF p13 p14
+Operation p15 "15-mintemp.2006 <- raster(\"../data/01_01_2006.tiff\")" Value="mintemp.2006 <- raster(\"../data/01_01_2006.tiff\")" Time="1.161" Script="0" Line="24";
+CF p14 p15
+Snapshot d10 "10-mintemp.2006" Value="./gENM_ddg/10-mintemp.2006.txt" Time="2016-08-12T10.44.54EDT";
+DF p15 d10
+Operation p16 "16-mintemp.2050 <- raster(\"../data/01_01_2050.tiff\")" Value="mintemp.2050 <- raster(\"../data/01_01_2050.tiff\")" Time="2.215" Script="0" Line="25";
+CF p15 p16
+Snapshot d11 "11-mintemp.2050" Value="./gENM_ddg/11-mintemp.2050.txt" Time="2016-08-12T10.44.55EDT";
+DF p16 d11
+Operation p17 "17-mintemp.2099 <- raster(\"../data/01_01_2099.tiff\")" Value="mintemp.2099 <- raster(\"../data/01_01_2099.tiff\")" Time="2.96" Script="0" Line="26";
+CF p16 p17
+Snapshot d12 "12-mintemp.2099" Value="./gENM_ddg/12-mintemp.2099.txt" Time="2016-08-12T10.44.56EDT";
+DF p17 d12
+Operation p18 "18-gsp <- read.csv(\"../data/RICTMEdukesnantucket.csv\")" Value="gsp <- read.csv(\"../data/RICTMEdukesnantucket.csv\")" Time="3.691" Script="0" Line="28";
+CF p17 p18
+File d13 "13-RICTMEdukesnantucket.csv" Value="./gENM_ddg/13-RICTMEdukesnantucket.csv" Time="2016-08-12T10.44.56EDT" Location="/Users/hermes/Projects/HF/projects/gENM/data/RICTMEdukesnantucket.csv";
+DF d13 p18
+Snapshot d14 "14-gsp" Value="./gENM_ddg/14-gsp.csv" Time="2016-08-12T10.44.56EDT";
+DF p18 d14
+Operation p19 "19-if (is.matrix(gsp) == FALSE) {    gsp <- data.matrix(gsp)}" Value="if (is.matrix(gsp) == FALSE) {    gsp <- data.matrix(gsp)}" Time="3.728" Script="0" Line="29";
+CF p18 p19
+Snapshot d15 "15-gsp" Value="./gENM_ddg/15-gsp.csv" Time="2016-08-12T10.44.56EDT";
+DF p19 d15
+Start p20 "20-clust <- gClust(x = gsp, vp = mintemp.2006)" Value="clust <- gClust(x = gsp, vp = mintemp.2006)" Time="3.76499999999999" Script="0" Line="33";
+CF p19 p20
+DF d5 p20
+DF d15 p20
+DF d10 p20
+Start p21 "21-gClust(x = gsp, vp = mintemp.2006)" Value="gClust(x = gsp, vp = mintemp.2006)" Time="3.797" Script="0" Line="33";
+CF p20 p21
+Binding p22 "22-x  <-  gsp" Time="3.799" Script="0" Line="33";
+CF p21 p22
+DF d15 p22
+Snapshot d16 "16-x" Value="./gENM_ddg/16-x.csv" Time="2016-08-12T10.44.56EDT";
+DF p22 d16
+Binding p23 "23-vp  <-  mintemp.2006" Time="3.825" Script="0" Line="33";
+CF p22 p23
+DF d10 p23
+Snapshot d17 "17-vp" Value="./gENM_ddg/17-vp.txt" Time="2016-08-12T10.44.57EDT";
+DF p23 d17
+Operation p24 "24-gClust" Value="gClust" Time="4.542" Script="0" Line="33";
+DF d5 p24
+DF d16 p24
+DF d17 p24
+CF p23 p24
+Operation p25 "25-set.seed(1)" Value="set.seed(1)" Time="4.58" Script="0" Line="33";
+CF p24 p25
+Operation p26 "26-if (!km) {    if (!(is.matrix(x))) {        x <- as.matrix(x" Value="if (!km) {    if (!(is.matrix(x))) {        x <- as.matrix(x" Time="4.99299999999999" Script="0" Line="33";
+CF p25 p26
+DF d16 p26
+DF d17 p26
+DF d3 p26
+DF d2 p26
+DF d4 p26
+Snapshot d18 "18-x" Value="./gENM_ddg/18-x.csv" Time="2016-08-12T10.44.58EDT";
+DF p26 d18
+Snapshot d19 "19-gc" Value="./gENM_ddg/19-gc.csv" Time="2016-08-12T10.44.58EDT";
+DF p26 d19
+Snapshot d20 "20-y" Value="./gENM_ddg/20-y.csv" Time="2016-08-12T10.44.58EDT";
+DF p26 d20
+Snapshot d21 "21-kc" Value="./gENM_ddg/21-kc.txt" Time="2016-08-12T10.44.58EDT";
+DF p26 d21
+Data d22 "22-wss" Value="12297.3504282078,852.128244466318,276.742360367648,160.441616409508,124.067546427854,83.9127805247054,50.2214028358114,27.1113757615262,19.3823213032813,17.1653232153729";
+DF p26 d22
+Data d23 "23-dw" Value="0.930706354231258,0.046789419188937,0.00945738227410097,0.00295787862548164,0.00326531850397964,0.00273972656838438,0.00187926880747215,0.000628513800868511,0.000180282582077441";
+DF p26 d23
+Data d24 "24-nc" Value="3";
+DF p26 d24
+Operation p27 "27-gc" Value="gc" Time="5.38" Script="0" Line="33";
+CF p26 p27
+DF d19 p27
+Snapshot d25 "25-gClust(x=gsp,vp=mintemp.2006) return" Value="./gENM_ddg/25-gClust(x=gsp,vp=mintemp.2006) return.csv" Time="2016-08-12T10.44.58EDT";
+Operation p28 "28-return (gc)" Value="return (gc)" Time="5.405" Script="0" Line="33";
+CF p27 p28
+DF d19 p28
+DF p28 d25
+Finish p29 "29-gClust(x = gsp, vp = mintemp.2006)" Value="gClust(x = gsp, vp = mintemp.2006)" Time="5.423" Script="0" Line="33";
+CF p28 p29
+Finish p30 "30-clust <- gClust(x = gsp, vp = mintemp.2006)" Value="clust <- gClust(x = gsp, vp = mintemp.2006)" Time="5.425" Script="0" Line="33";
+CF p29 p30
+DF d25 p30
+Snapshot d26 "26-clust" Value="./gENM_ddg/26-clust.csv" Time="2016-08-12T10.44.58EDT";
+DF p30 d26
+Start p31 "31-out <- gENM(x = gsp, clust = clust, p = mintemp.2006)" Value="out <- gENM(x = gsp, clust = clust, p = mintemp.2006)" Time="5.44199999999999" Script="0" Line="34";
+CF p30 p31
+DF d7 p31
+DF d15 p31
+DF d26 p31
+DF d10 p31
+Start p32 "32-gENM(x = gsp, clust = clust, p = mintemp.2006)" Value="gENM(x = gsp, clust = clust, p = mintemp.2006)" Time="5.483" Script="0" Line="34";
+CF p31 p32
+Binding p33 "33-x  <-  gsp" Time="5.485" Script="0" Line="34";
+CF p32 p33
+DF d15 p33
+Snapshot d27 "27-x" Value="./gENM_ddg/27-x.csv" Time="2016-08-12T10.44.58EDT";
+DF p33 d27
+Binding p34 "34-clust  <-  clust" Time="5.511" Script="0" Line="34";
+CF p33 p34
+DF d26 p34
+Snapshot d28 "28-clust" Value="./gENM_ddg/28-clust.csv" Time="2016-08-12T10.44.58EDT";
+DF p34 d28
+Binding p35 "35-p  <-  mintemp.2006" Time="5.53" Script="0" Line="34";
+CF p34 p35
+DF d10 p35
+Snapshot d29 "29-p" Value="./gENM_ddg/29-p.txt" Time="2016-08-12T10.44.59EDT";
+DF p35 d29
+Operation p36 "36-gENM" Value="gENM" Time="6.256" Script="0" Line="34";
+DF d7 p36
+DF d27 p36
+DF d28 p36
+DF d29 p36
+CF p35 p36
+Operation p37 "37-df.gsp <- data.frame(x)" Value="df.gsp <- data.frame(x)" Time="6.293" Script="0" Line="34";
+CF p36 p37
+DF d27 p37
+Snapshot d30 "30-df.gsp" Value="./gENM_ddg/30-df.gsp.csv" Time="2016-08-12T10.44.59EDT";
+DF p37 d30
+Operation p38 "38-groups <- split(df.gsp, clust)" Value="groups <- split(df.gsp, clust)" Time="6.328" Script="0" Line="34";
+CF p37 p38
+DF d30 p38
+DF d28 p38
+Snapshot d31 "31-groups" Value="./gENM_ddg/31-groups.txt" Time="2016-08-12T10.44.59EDT";
+DF p38 d31
+Start p39 "39-analysis <- (lapply(groups, ENM, p))" Value="analysis <- (lapply(groups, ENM, p))" Time="6.404" Script="0" Line="34";
+CF p38 p39
+DF d6 p39
+Start p40 "40-FUN(X[[i]], ...)" Value="FUN(X[[i]], ...)" Time="6.432" Script="0" Line="34";
+CF p39 p40
+Binding p41 "41-...  <-  X[[i]]" Time="6.435" Script="0" Line="34";
+CF p40 p41
+Binding p42 "42-...  <-  ..." Time="6.447" Script="0" Line="34";
+CF p41 p42
+Operation p43 "43-FUN" Value="FUN" Time="6.45200000000001" Script="0" Line="34";
+CF p42 p43
+Operation p44 "44-if (class(p) == \"RasterLayer\") {    p <- stack(p)}" Value="if (class(p) == \"RasterLayer\") {    p <- stack(p)}" Time="6.462" Script="0" Line="34";
+CF p43 p44
+Snapshot d32 "32-p" Value="./gENM_ddg/32-p.txt" Time="2016-08-12T10.45.00EDT";
+DF p44 d32
+Operation p45 "45-set.seed(seed)" Value="set.seed(seed)" Time="7.214" Script="0" Line="34";
+CF p44 p45
+Operation p46 "46-circ <- circles(x, d = c.rad, lonlat = T)" Value="circ <- circles(x, d = c.rad, lonlat = T)" Time="7.814" Script="0" Line="34";
+CF p45 p46
+Snapshot d33 "33-circ" Value="./gENM_ddg/33-circ.txt" Time="2016-08-12T10.45.00EDT";
+DF p46 d33
+Operation p47 "47-random <- spsample(circ@polygons, n, type = \"random\", iter =" Value="random <- spsample(circ@polygons, n, type = \"random\", iter =" Time="8.039" Script="0" Line="34";
+CF p46 p47
+DF d33 p47
+Snapshot d34 "34-random" Value="./gENM_ddg/34-random.txt" Time="2016-08-12T10.45.00EDT";
+DF p47 d34
+Operation p48 "48-gsp_bc <- extract(p, x)" Value="gsp_bc <- extract(p, x)" Time="8.46299999999999" Script="0" Line="34";
+CF p47 p48
+DF d32 p48
+Snapshot d35 "35-gsp_bc" Value="./gENM_ddg/35-gsp_bc.csv" Time="2016-08-12T10.45.01EDT";
+DF p48 d35
+Operation p49 "49-gsp_bc <- data.frame(cbind(x, env = gsp_bc))" Value="gsp_bc <- data.frame(cbind(x, env = gsp_bc))" Time="8.497" Script="0" Line="34";
+CF p48 p49
+DF d35 p49
+Snapshot d36 "36-gsp_bc" Value="./gENM_ddg/36-gsp_bc.csv" Time="2016-08-12T10.45.01EDT";
+DF p49 d36
+Operation p50 "50-random_bc <- extract(p, random)" Value="random_bc <- extract(p, random)" Time="8.891" Script="0" Line="34";
+CF p49 p50
+DF d32 p50
+DF d34 p50
+Snapshot d37 "37-random_bc" Value="./gENM_ddg/37-random_bc.csv" Time="2016-08-12T10.45.01EDT";
+DF p50 d37
+Operation p51 "51-random <- random@coords" Value="random <- random@coords" Time="8.93" Script="0" Line="34";
+CF p50 p51
+DF d34 p51
+Snapshot d38 "38-random" Value="./gENM_ddg/38-random.csv" Time="2016-08-12T10.45.01EDT";
+DF p51 d38
+Operation p52 "52-colnames(random) <- c(\"lon\", \"lat\")" Value="colnames(random) <- c(\"lon\", \"lat\")" Time="8.96299999999999" Script="0" Line="34";
+CF p51 p52
+DF d38 p52
+Snapshot d39 "39-random" Value="./gENM_ddg/39-random.csv" Time="2016-08-12T10.45.01EDT";
+DF p52 d39
+Operation p53 "53-random_bc <- data.frame(cbind(random, env = random_bc))" Value="random_bc <- data.frame(cbind(random, env = random_bc))" Time="8.995" Script="0" Line="34";
+CF p52 p53
+DF d39 p53
+DF d37 p53
+Snapshot d40 "40-random_bc" Value="./gENM_ddg/40-random_bc.csv" Time="2016-08-12T10.45.01EDT";
+DF p53 d40
+Operation p54 "54-random_bc <- random_bc[!is.na(random_bc[, 3]), ]" Value="random_bc <- random_bc[!is.na(random_bc[, 3]), ]" Time="9.044" Script="0" Line="34";
+CF p53 p54
+DF d40 p54
+Snapshot d41 "41-random_bc" Value="./gENM_ddg/41-random_bc.csv" Time="2016-08-12T10.45.01EDT";
+DF p54 d41
+Operation p55 "55-me <- maxent(p, gsp_bc[, c(\"lon\", \"lat\")], random_bc[, c(\"lo" Value="me <- maxent(p, gsp_bc[, c(\"lon\", \"lat\")], random_bc[, c(\"lo" Time="13.82" Script="0" Line="34";
+CF p54 p55
+DF d32 p55
+DF d36 p55
+DF d41 p55
+Snapshot d42 "42-me" Value="./gENM_ddg/42-me.txt" Time="2016-08-12T10.45.07EDT";
+DF p55 d42
+Operation p56 "56-e <- evaluate(gsp_bc[, c(\"lon\", \"lat\")], random_bc[, c(\"lon\"" Value="e <- evaluate(gsp_bc[, c(\"lon\", \"lat\")], random_bc[, c(\"lon\"" Time="14.885" Script="0" Line="34";
+CF p55 p56
+DF d36 p56
+DF d41 p56
+DF d42 p56
+DF d32 p56
+Snapshot d43 "43-e" Value="./gENM_ddg/43-e.txt" Time="2016-08-12T10.45.09EDT";
+DF p56 d43
+Operation p57 "57-pred_me <- predict(me, p)" Value="pred_me <- predict(me, p)" Time="16.646" Script="0" Line="34";
+CF p56 p57
+DF d42 p57
+DF d32 p57
+Snapshot d44 "44-pred_me" Value="./gENM_ddg/44-pred_me.txt" Time="2016-08-12T10.45.11EDT";
+DF p57 d44
+Operation p58 "58-out <- list(eval = e, pred = pred_me, model = me)" Value="out <- list(eval = e, pred = pred_me, model = me)" Time="17.025" Script="0" Line="34";
+CF p57 p58
+DF d43 p58
+DF d44 p58
+DF d42 p58
+Snapshot d45 "45-out" Value="./gENM_ddg/45-out.txt" Time="2016-08-12T10.45.12EDT";
+DF p58 d45
+Operation p59 "59-out" Value="out" Time="17.243" Script="0" Line="34";
+CF p58 p59
+DF d45 p59
+Snapshot d46 "46-FUN(X[[i]],...) return" Value="./gENM_ddg/46-FUN(X[[i]],...) return.txt" Time="2016-08-12T10.45.12EDT";
+Operation p60 "60-return (out)" Value="return (out)" Time="17.435" Script="0" Line="34";
+CF p59 p60
+DF d45 p60
+DF p60 d46
+Finish p61 "61-FUN(X[[i]], ...)" Value="FUN(X[[i]], ...)" Time="17.448" Script="0" Line="34";
+CF p60 p61
+Start p62 "62-FUN(X[[i]], ...)" Value="FUN(X[[i]], ...)" Time="17.45" Script="0" Line="34";
+CF p61 p62
+Binding p63 "63-...  <-  X[[i]]" Time="17.452" Script="0" Line="34";
+CF p62 p63
+Binding p64 "64-...  <-  ..." Time="17.465" Script="0" Line="34";
+CF p63 p64
+Operation p65 "65-FUN" Value="FUN" Time="17.471" Script="0" Line="34";
+CF p64 p65
+Operation p66 "66-if (class(p) == \"RasterLayer\") {    p <- stack(p)}" Value="if (class(p) == \"RasterLayer\") {    p <- stack(p)}" Time="17.481" Script="0" Line="34";
+CF p65 p66
+Snapshot d47 "47-p" Value="./gENM_ddg/47-p.txt" Time="2016-08-12T10.45.13EDT";
+DF p66 d47
+Operation p67 "67-set.seed(seed)" Value="set.seed(seed)" Time="18.235" Script="0" Line="34";
+CF p66 p67
+Operation p68 "68-circ <- circles(x, d = c.rad, lonlat = T)" Value="circ <- circles(x, d = c.rad, lonlat = T)" Time="21.089" Script="0" Line="34";
+CF p67 p68
+Snapshot d48 "48-circ" Value="./gENM_ddg/48-circ.txt" Time="2016-08-12T10.45.16EDT";
+DF p68 d48
+Operation p69 "69-random <- spsample(circ@polygons, n, type = \"random\", iter =" Value="random <- spsample(circ@polygons, n, type = \"random\", iter =" Time="21.18" Script="0" Line="34";
+CF p68 p69
+DF d48 p69
+Snapshot d49 "49-random" Value="./gENM_ddg/49-random.txt" Time="2016-08-12T10.45.17EDT";
+DF p69 d49
+Operation p70 "70-gsp_bc <- extract(p, x)" Value="gsp_bc <- extract(p, x)" Time="21.608" Script="0" Line="34";
+CF p69 p70
+DF d47 p70
+Snapshot d50 "50-gsp_bc" Value="./gENM_ddg/50-gsp_bc.csv" Time="2016-08-12T10.45.17EDT";
+DF p70 d50
+Operation p71 "71-gsp_bc <- data.frame(cbind(x, env = gsp_bc))" Value="gsp_bc <- data.frame(cbind(x, env = gsp_bc))" Time="21.638" Script="0" Line="34";
+CF p70 p71
+DF d50 p71
+Snapshot d51 "51-gsp_bc" Value="./gENM_ddg/51-gsp_bc.csv" Time="2016-08-12T10.45.17EDT";
+DF p71 d51
+Operation p72 "72-random_bc <- extract(p, random)" Value="random_bc <- extract(p, random)" Time="22.036" Script="0" Line="34";
+CF p71 p72
+DF d47 p72
+DF d49 p72
+Snapshot d52 "52-random_bc" Value="./gENM_ddg/52-random_bc.csv" Time="2016-08-12T10.45.17EDT";
+DF p72 d52
+Operation p73 "73-random <- random@coords" Value="random <- random@coords" Time="22.068" Script="0" Line="34";
+CF p72 p73
+DF d49 p73
+Snapshot d53 "53-random" Value="./gENM_ddg/53-random.csv" Time="2016-08-12T10.45.17EDT";
+DF p73 d53
+Operation p74 "74-colnames(random) <- c(\"lon\", \"lat\")" Value="colnames(random) <- c(\"lon\", \"lat\")" Time="22.098" Script="0" Line="34";
+CF p73 p74
+DF d53 p74
+Snapshot d54 "54-random" Value="./gENM_ddg/54-random.csv" Time="2016-08-12T10.45.17EDT";
+DF p74 d54
+Operation p75 "75-random_bc <- data.frame(cbind(random, env = random_bc))" Value="random_bc <- data.frame(cbind(random, env = random_bc))" Time="22.128" Script="0" Line="34";
+CF p74 p75
+DF d54 p75
+DF d52 p75
+Snapshot d55 "55-random_bc" Value="./gENM_ddg/55-random_bc.csv" Time="2016-08-12T10.45.17EDT";
+DF p75 d55
+Operation p76 "76-random_bc <- random_bc[!is.na(random_bc[, 3]), ]" Value="random_bc <- random_bc[!is.na(random_bc[, 3]), ]" Time="22.171" Script="0" Line="34";
+CF p75 p76
+DF d55 p76
+Snapshot d56 "56-random_bc" Value="./gENM_ddg/56-random_bc.csv" Time="2016-08-12T10.45.17EDT";
+DF p76 d56
+Operation p77 "77-me <- maxent(p, gsp_bc[, c(\"lon\", \"lat\")], random_bc[, c(\"lo" Value="me <- maxent(p, gsp_bc[, c(\"lon\", \"lat\")], random_bc[, c(\"lo" Time="23.756" Script="0" Line="34";
+CF p76 p77
+DF d47 p77
+DF d51 p77
+DF d56 p77
+Snapshot d57 "57-me" Value="./gENM_ddg/57-me.txt" Time="2016-08-12T10.45.19EDT";
+DF p77 d57
+Operation p78 "78-e <- evaluate(gsp_bc[, c(\"lon\", \"lat\")], random_bc[, c(\"lon\"" Value="e <- evaluate(gsp_bc[, c(\"lon\", \"lat\")], random_bc[, c(\"lon\"" Time="24.867" Script="0" Line="34";
+CF p77 p78
+DF d51 p78
+DF d56 p78
+DF d57 p78
+DF d47 p78
+Snapshot d58 "58-e" Value="./gENM_ddg/58-e.txt" Time="2016-08-12T10.45.21EDT";
+DF p78 d58
+Operation p79 "79-pred_me <- predict(me, p)" Value="pred_me <- predict(me, p)" Time="26.451" Script="0" Line="34";
+CF p78 p79
+DF d57 p79
+DF d47 p79
+Snapshot d59 "59-pred_me" Value="./gENM_ddg/59-pred_me.txt" Time="2016-08-12T10.45.23EDT";
+DF p79 d59
+Operation p80 "80-out <- list(eval = e, pred = pred_me, model = me)" Value="out <- list(eval = e, pred = pred_me, model = me)" Time="26.856" Script="0" Line="34";
+CF p79 p80
+DF d58 p80
+DF d59 p80
+DF d57 p80
+Snapshot d60 "60-out" Value="./gENM_ddg/60-out.txt" Time="2016-08-12T10.45.23EDT";
+DF p80 d60
+Operation p81 "81-out" Value="out" Time="27.074" Script="0" Line="34";
+CF p80 p81
+DF d60 p81
+Snapshot d61 "61-FUN(X[[i]],...) return" Value="./gENM_ddg/61-FUN(X[[i]],...) return.txt" Time="2016-08-12T10.45.24EDT";
+Operation p82 "82-return (out)" Value="return (out)" Time="27.274" Script="0" Line="34";
+CF p81 p82
+DF d60 p82
+DF p82 d61
+Finish p83 "83-FUN(X[[i]], ...)" Value="FUN(X[[i]], ...)" Time="27.283" Script="0" Line="34";
+CF p82 p83
+Start p84 "84-FUN(X[[i]], ...)" Value="FUN(X[[i]], ...)" Time="27.286" Script="0" Line="34";
+CF p83 p84
+Binding p85 "85-...  <-  X[[i]]" Time="27.288" Script="0" Line="34";
+CF p84 p85
+Binding p86 "86-...  <-  ..." Time="27.304" Script="0" Line="34";
+CF p85 p86
+Operation p87 "87-FUN" Value="FUN" Time="27.31" Script="0" Line="34";
+CF p86 p87
+Operation p88 "88-if (class(p) == \"RasterLayer\") {    p <- stack(p)}" Value="if (class(p) == \"RasterLayer\") {    p <- stack(p)}" Time="27.321" Script="0" Line="34";
+CF p87 p88
+Snapshot d62 "62-p" Value="./gENM_ddg/62-p.txt" Time="2016-08-12T10.45.25EDT";
+DF p88 d62
+Operation p89 "89-set.seed(seed)" Value="set.seed(seed)" Time="28.066" Script="0" Line="34";
+CF p88 p89
+Operation p90 "90-circ <- circles(x, d = c.rad, lonlat = T)" Value="circ <- circles(x, d = c.rad, lonlat = T)" Time="33.934" Script="0" Line="34";
+CF p89 p90
+Snapshot d63 "63-circ" Value="./gENM_ddg/63-circ.txt" Time="2016-08-12T10.45.31EDT";
+DF p90 d63
+Operation p91 "91-random <- spsample(circ@polygons, n, type = \"random\", iter =" Value="random <- spsample(circ@polygons, n, type = \"random\", iter =" Time="34.461" Script="0" Line="34";
+CF p90 p91
+DF d63 p91
+Snapshot d64 "64-random" Value="./gENM_ddg/64-random.txt" Time="2016-08-12T10.45.31EDT";
+DF p91 d64
+Operation p92 "92-gsp_bc <- extract(p, x)" Value="gsp_bc <- extract(p, x)" Time="34.883" Script="0" Line="34";
+CF p91 p92
+DF d62 p92
+Snapshot d65 "65-gsp_bc" Value="./gENM_ddg/65-gsp_bc.csv" Time="2016-08-12T10.45.32EDT";
+DF p92 d65
+Operation p93 "93-gsp_bc <- data.frame(cbind(x, env = gsp_bc))" Value="gsp_bc <- data.frame(cbind(x, env = gsp_bc))" Time="34.91" Script="0" Line="34";
+CF p92 p93
+DF d65 p93
+Snapshot d66 "66-gsp_bc" Value="./gENM_ddg/66-gsp_bc.csv" Time="2016-08-12T10.45.32EDT";
+DF p93 d66
+Operation p94 "94-random_bc <- extract(p, random)" Value="random_bc <- extract(p, random)" Time="35.304" Script="0" Line="34";
+CF p93 p94
+DF d62 p94
+DF d64 p94
+Snapshot d67 "67-random_bc" Value="./gENM_ddg/67-random_bc.csv" Time="2016-08-12T10.45.32EDT";
+DF p94 d67
+Operation p95 "95-random <- random@coords" Value="random <- random@coords" Time="35.333" Script="0" Line="34";
+CF p94 p95
+DF d64 p95
+Snapshot d68 "68-random" Value="./gENM_ddg/68-random.csv" Time="2016-08-12T10.45.32EDT";
+DF p95 d68
+Operation p96 "96-colnames(random) <- c(\"lon\", \"lat\")" Value="colnames(random) <- c(\"lon\", \"lat\")" Time="35.359" Script="0" Line="34";
+CF p95 p96
+DF d68 p96
+Snapshot d69 "69-random" Value="./gENM_ddg/69-random.csv" Time="2016-08-12T10.45.32EDT";
+DF p96 d69
+Operation p97 "97-random_bc <- data.frame(cbind(random, env = random_bc))" Value="random_bc <- data.frame(cbind(random, env = random_bc))" Time="35.385" Script="0" Line="34";
+CF p96 p97
+DF d69 p97
+DF d67 p97
+Snapshot d70 "70-random_bc" Value="./gENM_ddg/70-random_bc.csv" Time="2016-08-12T10.45.32EDT";
+DF p97 d70
+Operation p98 "98-random_bc <- random_bc[!is.na(random_bc[, 3]), ]" Value="random_bc <- random_bc[!is.na(random_bc[, 3]), ]" Time="35.422" Script="0" Line="34";
+CF p97 p98
+DF d70 p98
+Snapshot d71 "71-random_bc" Value="./gENM_ddg/71-random_bc.csv" Time="2016-08-12T10.45.32EDT";
+DF p98 d71
+Operation p99 "99-me <- maxent(p, gsp_bc[, c(\"lon\", \"lat\")], random_bc[, c(\"lo" Value="me <- maxent(p, gsp_bc[, c(\"lon\", \"lat\")], random_bc[, c(\"lo" Time="36.928" Script="0" Line="34";
+CF p98 p99
+DF d62 p99
+DF d66 p99
+DF d71 p99
+Snapshot d72 "72-me" Value="./gENM_ddg/72-me.txt" Time="2016-08-12T10.45.34EDT";
+DF p99 d72
+Operation p100 "100-e <- evaluate(gsp_bc[, c(\"lon\", \"lat\")], random_bc[, c(\"lon\"" Value="e <- evaluate(gsp_bc[, c(\"lon\", \"lat\")], random_bc[, c(\"lon\"" Time="37.839" Script="0" Line="34";
+CF p99 p100
+DF d66 p100
+DF d71 p100
+DF d72 p100
+DF d62 p100
+Snapshot d73 "73-e" Value="./gENM_ddg/73-e.txt" Time="2016-08-12T10.45.35EDT";
+DF p100 d73
+Operation p101 "101-pred_me <- predict(me, p)" Value="pred_me <- predict(me, p)" Time="39.432" Script="0" Line="34";
+CF p100 p101
+DF d72 p101
+DF d62 p101
+Snapshot d74 "74-pred_me" Value="./gENM_ddg/74-pred_me.txt" Time="2016-08-12T10.45.37EDT";
+DF p101 d74
+Operation p102 "102-out <- list(eval = e, pred = pred_me, model = me)" Value="out <- list(eval = e, pred = pred_me, model = me)" Time="39.826" Script="0" Line="34";
+CF p101 p102
+DF d73 p102
+DF d74 p102
+DF d72 p102
+Snapshot d75 "75-out" Value="./gENM_ddg/75-out.txt" Time="2016-08-12T10.45.37EDT";
+DF p102 d75
+Operation p103 "103-out" Value="out" Time="40.018" Script="0" Line="34";
+CF p102 p103
+DF d75 p103
+Snapshot d76 "76-FUN(X[[i]],...) return" Value="./gENM_ddg/76-FUN(X[[i]],...) return.txt" Time="2016-08-12T10.45.38EDT";
+Operation p104 "104-return (out)" Value="return (out)" Time="40.186" Script="0" Line="34";
+CF p103 p104
+DF d75 p104
+DF p104 d76
+Finish p105 "105-FUN(X[[i]], ...)" Value="FUN(X[[i]], ...)" Time="40.204" Script="0" Line="34";
+CF p104 p105
+Finish p106 "106-analysis <- (lapply(groups, ENM, p))" Value="analysis <- (lapply(groups, ENM, p))" Time="40.206" Script="0" Line="34";
+CF p105 p106
+Snapshot d77 "77-analysis" Value="./gENM_ddg/77-analysis.txt" Time="2016-08-12T10.45.38EDT";
+DF p106 d77
+Start p107 "107-enm.all <- list(ENM(do.call(rbind, groups), p))" Value="enm.all <- list(ENM(do.call(rbind, groups), p))" Time="40.224" Script="0" Line="34";
+CF p106 p107
+DF d6 p107
+DF d31 p107
+DF d29 p107
+Start p108 "108-ENM(do.call(rbind, groups), p)" Value="ENM(do.call(rbind, groups), p)" Time="40.284" Script="0" Line="34";
+CF p107 p108
+Binding p109 "109-x  <-  do.call(rbind, groups)" Time="40.287" Script="0" Line="34";
+CF p108 p109
+DF d31 p109
+Snapshot d78 "78-x" Value="./gENM_ddg/78-x.csv" Time="2016-08-12T10.45.38EDT";
+DF p109 d78
+Binding p110 "110-p  <-  p" Time="40.328" Script="0" Line="34";
+CF p109 p110
+DF d29 p110
+Snapshot d79 "79-p" Value="./gENM_ddg/79-p.txt" Time="2016-08-12T10.45.39EDT";
+DF p110 d79
+Operation p111 "111-ENM" Value="ENM" Time="41.073" Script="0" Line="34";
+DF d6 p111
+DF d78 p111
+DF d79 p111
+CF p110 p111
+Operation p112 "112-if (class(p) == \"RasterLayer\") {    p <- stack(p)}" Value="if (class(p) == \"RasterLayer\") {    p <- stack(p)}" Time="41.109" Script="0" Line="34";
+CF p111 p112
+DF d79 p112
+Snapshot d80 "80-p" Value="./gENM_ddg/80-p.txt" Time="2016-08-12T10.45.40EDT";
+DF p112 d80
+Operation p113 "113-set.seed(seed)" Value="set.seed(seed)" Time="41.862" Script="0" Line="34";
+CF p112 p113
+Operation p114 "114-circ <- circles(x, d = c.rad, lonlat = T)" Value="circ <- circles(x, d = c.rad, lonlat = T)" Time="51.412" Script="0" Line="34";
+CF p113 p114
+DF d78 p114
+Snapshot d81 "81-circ" Value="./gENM_ddg/81-circ.txt" Time="2016-08-12T10.45.50EDT";
+DF p114 d81
+Operation p115 "115-random <- spsample(circ@polygons, n, type = \"random\", iter =" Value="random <- spsample(circ@polygons, n, type = \"random\", iter =" Time="51.738" Script="0" Line="34";
+CF p114 p115
+DF d81 p115
+Snapshot d82 "82-random" Value="./gENM_ddg/82-random.txt" Time="2016-08-12T10.45.50EDT";
+DF p115 d82
+Operation p116 "116-gsp_bc <- extract(p, x)" Value="gsp_bc <- extract(p, x)" Time="52.182" Script="0" Line="34";
+CF p115 p116
+DF d80 p116
+DF d78 p116
+Snapshot d83 "83-gsp_bc" Value="./gENM_ddg/83-gsp_bc.csv" Time="2016-08-12T10.45.51EDT";
+DF p116 d83
+Operation p117 "117-gsp_bc <- data.frame(cbind(x, env = gsp_bc))" Value="gsp_bc <- data.frame(cbind(x, env = gsp_bc))" Time="52.224" Script="0" Line="34";
+CF p116 p117
+DF d78 p117
+DF d83 p117
+Snapshot d84 "84-gsp_bc" Value="./gENM_ddg/84-gsp_bc.csv" Time="2016-08-12T10.45.51EDT";
+DF p117 d84
+Operation p118 "118-random_bc <- extract(p, random)" Value="random_bc <- extract(p, random)" Time="52.629" Script="0" Line="34";
+CF p117 p118
+DF d80 p118
+DF d82 p118
+Snapshot d85 "85-random_bc" Value="./gENM_ddg/85-random_bc.csv" Time="2016-08-12T10.45.51EDT";
+DF p118 d85
+Operation p119 "119-random <- random@coords" Value="random <- random@coords" Time="52.67" Script="0" Line="34";
+CF p118 p119
+DF d82 p119
+Snapshot d86 "86-random" Value="./gENM_ddg/86-random.csv" Time="2016-08-12T10.45.51EDT";
+DF p119 d86
+Operation p120 "120-colnames(random) <- c(\"lon\", \"lat\")" Value="colnames(random) <- c(\"lon\", \"lat\")" Time="52.704" Script="0" Line="34";
+CF p119 p120
+DF d86 p120
+Snapshot d87 "87-random" Value="./gENM_ddg/87-random.csv" Time="2016-08-12T10.45.51EDT";
+DF p120 d87
+Operation p121 "121-random_bc <- data.frame(cbind(random, env = random_bc))" Value="random_bc <- data.frame(cbind(random, env = random_bc))" Time="52.737" Script="0" Line="34";
+CF p120 p121
+DF d87 p121
+DF d85 p121
+Snapshot d88 "88-random_bc" Value="./gENM_ddg/88-random_bc.csv" Time="2016-08-12T10.45.51EDT";
+DF p121 d88
+Operation p122 "122-random_bc <- random_bc[!is.na(random_bc[, 3]), ]" Value="random_bc <- random_bc[!is.na(random_bc[, 3]), ]" Time="52.791" Script="0" Line="34";
+CF p121 p122
+DF d88 p122
+Snapshot d89 "89-random_bc" Value="./gENM_ddg/89-random_bc.csv" Time="2016-08-12T10.45.51EDT";
+DF p122 d89
+Operation p123 "123-me <- maxent(p, gsp_bc[, c(\"lon\", \"lat\")], random_bc[, c(\"lo" Value="me <- maxent(p, gsp_bc[, c(\"lon\", \"lat\")], random_bc[, c(\"lo" Time="54.209" Script="0" Line="34";
+CF p122 p123
+DF d80 p123
+DF d84 p123
+DF d89 p123
+Snapshot d90 "90-me" Value="./gENM_ddg/90-me.txt" Time="2016-08-12T10.45.53EDT";
+DF p123 d90
+Operation p124 "124-e <- evaluate(gsp_bc[, c(\"lon\", \"lat\")], random_bc[, c(\"lon\"" Value="e <- evaluate(gsp_bc[, c(\"lon\", \"lat\")], random_bc[, c(\"lon\"" Time="55.133" Script="0" Line="34";
+CF p123 p124
+DF d84 p124
+DF d89 p124
+DF d90 p124
+DF d80 p124
+Snapshot d91 "91-e" Value="./gENM_ddg/91-e.txt" Time="2016-08-12T10.45.54EDT";
+DF p124 d91
+Operation p125 "125-pred_me <- predict(me, p)" Value="pred_me <- predict(me, p)" Time="56.835" Script="0" Line="34";
+CF p124 p125
+DF d90 p125
+DF d80 p125
+Snapshot d92 "92-pred_me" Value="./gENM_ddg/92-pred_me.txt" Time="2016-08-12T10.45.58EDT";
+DF p125 d92
+Operation p126 "126-out <- list(eval = e, pred = pred_me, model = me)" Value="out <- list(eval = e, pred = pred_me, model = me)" Time="57.216" Script="0" Line="34";
+CF p125 p126
+DF d91 p126
+DF d92 p126
+DF d90 p126
+Snapshot d93 "93-out" Value="./gENM_ddg/93-out.txt" Time="2016-08-12T10.45.58EDT";
+DF p126 d93
+Operation p127 "127-out" Value="out" Time="57.419" Script="0" Line="34";
+CF p126 p127
+DF d93 p127
+Snapshot d94 "94-ENM(do.call(rbind,groups),p) return" Value="./gENM_ddg/94-ENM(do.call(rbind,groups),p) return.txt" Time="2016-08-12T10.45.59EDT";
+Operation p128 "128-return (out)" Value="return (out)" Time="57.599" Script="0" Line="34";
+CF p127 p128
+DF d93 p128
+DF p128 d94
+Finish p129 "129-ENM(do.call(rbind, groups), p)" Value="ENM(do.call(rbind, groups), p)" Time="57.613" Script="0" Line="34";
+CF p128 p129
+Finish p130 "130-enm.all <- list(ENM(do.call(rbind, groups), p))" Value="enm.all <- list(ENM(do.call(rbind, groups), p))" Time="57.616" Script="0" Line="34";
+CF p129 p130
+DF d94 p130
+Snapshot d95 "95-enm.all" Value="./gENM_ddg/95-enm.all.txt" Time="2016-08-12T10.45.59EDT";
+DF p130 d95
+Operation p131 "131-out <- append(enm.all, analysis)" Value="out <- append(enm.all, analysis)" Time="57.632" Script="0" Line="34";
+CF p130 p131
+DF d95 p131
+DF d77 p131
+Snapshot d96 "96-out" Value="./gENM_ddg/96-out.txt" Time="2016-08-12T10.46.00EDT";
+DF p131 d96
+Snapshot d97 "97-gENM(x=gsp,clust=clust,p=mintemp.2006) return" Value="./gENM_ddg/97-gENM(x=gsp,clust=clust,p=mintemp.2006) return.txt" Time="2016-08-12T10.46.00EDT";
+Operation p132 "132-return (out <- append(enm.all, analysis))" Value="return (out <- append(enm.all, analysis))" Time="57.688" Script="0" Line="34";
+CF p131 p132
+DF d95 p132
+DF d77 p132
+DF p132 d97
+Finish p133 "133-gENM(x = gsp, clust = clust, p = mintemp.2006)" Value="gENM(x = gsp, clust = clust, p = mintemp.2006)" Time="57.718" Script="0" Line="34";
+CF p132 p133
+Finish p134 "134-out <- gENM(x = gsp, clust = clust, p = mintemp.2006)" Value="out <- gENM(x = gsp, clust = clust, p = mintemp.2006)" Time="57.72" Script="0" Line="34";
+CF p133 p134
+DF d97 p134
+Snapshot d98 "98-out" Value="./gENM_ddg/98-out.txt" Time="2016-08-12T10.46.00EDT";
+DF p134 d98
+Start p135 "135-gAnalysis(x = out)" Value="gAnalysis(x = out)" Time="57.738" Script="0" Line="35";
+CF p134 p135
+Binding p136 "136-x  <-  out" Time="57.741" Script="0" Line="35";
+CF p135 p136
+DF d98 p136
+Snapshot d99 "99-x" Value="./gENM_ddg/99-x.txt" Time="2016-08-12T10.46.00EDT";
+DF p136 d99
+Operation p137 "137-gAnalysis" Value="gAnalysis" Time="57.758" Script="0" Line="35";
+DF d8 p137
+DF d99 p137
+CF p136 p137
+Operation p138 "138-jpeg(filename = filename, width = 1700, height = 1700, units" Value="jpeg(filename = filename, width = 1700, height = 1700, units" Time="57.796" Script="0" Line="35";
+CF p137 p138
+Operation p139 "139-par(mfrow = mfrow, oma = rep(0, 4), omi = rep(0, 4), bty = \"" Value="par(mfrow = mfrow, oma = rep(0, 4), omi = rep(0, 4), bty = \"" Time="57.818" Script="0" Line="35";
+CF p138 p139
+Operation p140 "140-for (i in 1:length(x)) {    zoom(x[[i]]$pred, ext = ext, xax" Value="for (i in 1:length(x)) {    zoom(x[[i]]$pred, ext = ext, xax" Time="58.319" Script="0" Line="35";
+CF p139 p140
+DF d99 p140
+Operation p141 "141-dev.off()" Value="dev.off()" Time="58.435" Script="0" Line="35";
+CF p140 p141
+File d100 "100-gENM.jpeg" Value="./gENM_ddg/100-gENM.jpeg" Time="2016-08-12T10.46.01EDT" Location="/Users/hermes/Projects/HF/projects/gENM/results/gENM.jpeg";
+DF p141 d100
+Operation p142 "142-auc <- unlist(lapply(x, function(x) x$eval@auc))" Value="auc <- unlist(lapply(x, function(x) x$eval@auc))" Time="58.458" Script="0" Line="35";
+CF p141 p142
+DF d99 p142
+Snapshot d101 "101-auc" Value="./gENM_ddg/101-auc.csv" Time="2016-08-12T10.46.01EDT";
+DF p142 d101
+Operation p143 "143-cor <- unlist(lapply(x, function(x) x$eval@cor))" Value="cor <- unlist(lapply(x, function(x) x$eval@cor))" Time="58.499" Script="0" Line="35";
+CF p142 p143
+DF d99 p143
+Snapshot d102 "102-cor" Value="./gENM_ddg/102-cor.csv" Time="2016-08-12T10.46.01EDT";
+DF p143 d102
+Operation p144 "144-out <- data.frame(auc, cor)" Value="out <- data.frame(auc, cor)" Time="58.547" Script="0" Line="35";
+CF p143 p144
+DF d101 p144
+DF d102 p144
+Snapshot d103 "103-out" Value="./gENM_ddg/103-out.csv" Time="2016-08-12T10.46.01EDT";
+DF p144 d103
+Operation p145 "145-out" Value="out" Time="58.593" Script="0" Line="35";
+CF p144 p145
+DF d103 p145
+Snapshot d104 "104-gAnalysis(x=out) return" Value="./gENM_ddg/104-gAnalysis(x=out) return.csv" Time="2016-08-12T10.46.01EDT";
+Operation p146 "146-return (out)" Value="return (out)" Time="58.615" Script="0" Line="35";
+CF p145 p146
+DF d103 p146
+DF p146 d104
+Finish p147 "147-gAnalysis(x = out)" Value="gAnalysis(x = out)" Time="58.634" Script="0" Line="35";
+CF p146 p147
+Start p148 "148-gDensCurv(x = gsp, p = mintemp.2006, pr = mintemp.2006, gc)" Value="gDensCurv(x = gsp, p = mintemp.2006, pr = mintemp.2006, gc)" Time="58.638" Script="0" Line="38";
+CF p147 p148
+Binding p149 "149-x  <-  gsp" Time="58.641" Script="0" Line="38";
+CF p148 p149
+DF d15 p149
+Snapshot d105 "105-x" Value="./gENM_ddg/105-x.csv" Time="2016-08-12T10.46.01EDT";
+DF p149 d105
+Binding p150 "150-p  <-  mintemp.2006" Time="58.675" Script="0" Line="38";
+CF p149 p150
+DF d10 p150
+Snapshot d106 "106-p" Value="./gENM_ddg/106-p.txt" Time="2016-08-12T10.46.02EDT";
+DF p150 d106
+Binding p151 "151-pr  <-  mintemp.2006" Time="59.453" Script="0" Line="38";
+CF p150 p151
+DF d10 p151
+Snapshot d107 "107-pr" Value="./gENM_ddg/107-pr.txt" Time="2016-08-12T10.46.04EDT";
+DF p151 d107
+Binding p152 "152-gc  <-  gc" Time="60.224" Script="0" Line="38";
+CF p151 p152
+Data d108 "108-gc" Value="#ddg.function";
+DF p152 d108
+Operation p153 "153-gDensCurv" Value="gDensCurv" Time="60.242" Script="0" Line="38";
+DF d9 p153
+DF d105 p153
+DF d106 p153
+DF d107 p153
+DF d108 p153
+CF p152 p153
+Operation p154 "154-mt.2006 <- extract(p, x)" Value="mt.2006 <- extract(p, x)" Time="60.676" Script="0" Line="38";
+CF p153 p154
+DF d106 p154
+DF d105 p154
+Snapshot d109 "109-mt.2006" Value="./gENM_ddg/109-mt.2006.csv" Time="2016-08-12T10.46.05EDT";
+DF p154 d109
+Operation p155 "155-tryCatch" Value="tryCatch" Time="60.722" Script="0" Line="38";
+CF p154 p155
+Exception d110 "110-error.msg" Value="\"Error in unique.default(x, nmax = nmax): unique() applies only to vectors \"";
+DF p155 d110
+

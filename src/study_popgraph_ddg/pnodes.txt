@@ -1,0 +1,10 @@
+ddg.type	ddg.num	ddg.name	ddg.value	ddg.return.linked	ddg.auto.created	ddg.time	ddg.snum	ddg.lnum
+Start	1	study_popgraph.R	study_popgraph.R	FALSE	FALSE	0.101	0	NA
+Operation	2	installed.packages("popgraph")	installed.packages("popgraph")	FALSE	FALSE	0.107	0	4
+Operation	3	library(popgraph)	library(popgraph)	FALSE	FALSE	2.987	0	5
+Operation	4	require(ggplot2)	require(ggplot2)	FALSE	FALSE	3.202	0	6
+Operation	5	require(gstudio)	require(gstudio)	FALSE	FALSE	7.43	0	7
+Operation	6	data(arapat)	data(arapat)	FALSE	FALSE	7.448	0	9
+Operation	7	data <- unique(arapat[, c(2, 3, 6, 5)])	data <- unique(arapat[, c(2, 3, 6, 5)])	FALSE	FALSE	7.495	0	10
+Operation	8	centroid <- apply(data[, 3:4], 2, mean)	centroid <- apply(data[, 3:4], 2, mean)	FALSE	FALSE	7.534	0	11
+Operation	9	tryCatch	tryCatch	FALSE	FALSE	7.572	0	13

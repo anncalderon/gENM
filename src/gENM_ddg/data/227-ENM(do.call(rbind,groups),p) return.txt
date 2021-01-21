@@ -1,0 +1,3 @@
+[[ 1 ]] c("class          : ModelEvaluation ", "n presences    : 834 ", "n absences     : 987 ", "AUC            : 0.5822764 ", "cor            : 0.1526911 ", "max TPR+TNR at : 0.2450183 ")
+[[ 2 ]] c("class       : RasterLayer ", "dimensions  : 159, 162, 25758  (nrow, ncol, ncell)", "resolution  : 0.04166597, 0.04166601  (x, y)", "extent      : -73.79381, -67.04392, 40.91699, 47.54189  (xmin, xmax, ymin, ymax)", "coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 ", "data source : in memory", "names       : layer ", "values      : 0.009787291, 0.6646761  (min, max)", "")
+[[ 3 ]] c("class    : MaxEnt ", "variables: X01_01_2099 ")

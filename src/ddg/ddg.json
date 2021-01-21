@@ -1,0 +1,60 @@
+{
+
+"prefix" : {
+"prov" : "http://www.w3.org/ns/prov#",
+"rdt" : "http://rdatatracker.org/"
+},
+"activity":{
+
+"environment" : {
+"rdt:name" : "environment",
+"rdt:architecture" : "x86_64",
+"rdt:operatingSystem" : "unix",
+"rdt:language" : "R",
+"rdt:rVersion" : "R version 3.3.1 (2016-06-21)",
+"rdt:script" : "",
+"rdt:scriptTimeStamp" : "",
+"rdt:workingDirectory" : "/Users/hermes/Projects/HF/projects/gENM/src",
+"rdt:ddgDirectory" : "/Users/hermes/Projects/HF/projects/gENM/src/ddg",
+"rdt:ddgTimeStamp" : "2016-08-12T10.34.05EDT",
+"rdt:rdatatrackerVersion" : "2.24.1",
+"rdt:InstalledPackages": [
+	{"package":"RDataTracker", "version":"2.24.1"}]
+}},
+"entity":{
+
+"d1" : {
+"rdt:name" : "error.msg",
+"rdt:value" : "\"No binding for .ddg.source.parsed . DDG may be incorrect!\"",
+"rdt:type" : "Exception",
+"rdt:scope" : "ddg.library",
+"rdt:fromEnv" : "FALSE",
+"rdt:timestamp" : "",
+"rdt:location" : ""
+} ,
+
+"d2" : {
+"rdt:name" : "error.msg",
+"rdt:value" : "\"No binding for .ddg.sourced.scripts . DDG may be incorrect!\"",
+"rdt:type" : "Exception",
+"rdt:scope" : "ddg.library",
+"rdt:fromEnv" : "FALSE",
+"rdt:timestamp" : "",
+"rdt:location" : ""
+}},
+"wasInformedBy":{
+},
+"wasGeneratedBy":{
+
+"e1" : {
+"prov:entity" : "d1",
+"prov:activity" : "p0"
+} ,
+
+"e2" : {
+"prov:entity" : "d2",
+"prov:activity" : "p0"
+}},
+"used":{
+}
+}

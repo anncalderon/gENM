@@ -1,0 +1,93 @@
+---
+title: "Genetics-based Environmental Niche Modeling"
+output: 
+pdf_document: 
+keep_md: no
+
+---
+
+
+# Data Summary
+
+- Use datasets HF147-12 and HF147-15 
+- Data are hosted by the Environmental Data Initiative and the HF Archive
+- EDI has an API for R !(EDIutils)[https://github.com/EDIorg/EDIutils]
+- Data from HF archive can be sourced with URL, this is less desirable
+  as URLS could change
+- Make sure to remove duplicated rows (see `unique()`)
+- Relevant species are:
+  - *Aphaenogaster picea*
+  - *A. fulva*
+  - *A. tenneseensis*
+  - *A. treatae*
+  - *A. rudis*
+  - aphNA = un-assignable specimens
+
+```{r data-prev, echo = FALSE}
+
+loadd(Data)
+head(Data)
+table(Data[, "ant.species"])
+
+```
+
+```{r map-picea, echo = FALSE}
+
+map_occurrences(Data[Data[, "ant.species"] == "picea", ], 
+                range(Data[Data[, "ant.species"] == "picea", "longitude"]), 
+                range(Data[Data[, "ant.species"] == "picea", "latitude"]), 
+                title = "A. picea Presence") 
+                
+
+```
+
+
+# Modeling and Analyses 
+
+
+## Data Cleaning
+
+- Check species naming errors
+- Check location errors
+- Fix errors
+- Remove problem data
+- Check data
+
+## Input/Outputs
+
+- Ant data
+- Climate data
+- Landscape data
+
+| Input            | Description | Output |
+|:-----------------|:------------|:-------|
+| Ant distribution |             |        |
+| Climate          |             |        |
+| Landscape        |             |        |
+|                  |             |        |
+
+
+## Dependencies
+
+
+
+
+## Check: Sampling Depth
+
+
+
+
+
+
+# Assess Sampling Coverage and Depth
+
+# Species Distribution Models
+
+# Results
+
+- Assess patterns of distribution for each species
+- Assess co-distribution patterns
+- Assess mutualist distributions
+- Assess conservation edges
+
+

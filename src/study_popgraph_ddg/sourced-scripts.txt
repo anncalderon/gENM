@@ -1,0 +1,2 @@
+snum	sname
+0	study_popgraph.R

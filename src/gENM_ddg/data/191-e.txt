@@ -1,0 +1,6 @@
+class          : ModelEvaluation 
+n presences    : 77 
+n absences     : 993 
+AUC            : 0.7715894 
+cor            : 0.2219661 
+max TPR+TNR at : 0.484145 

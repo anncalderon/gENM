@@ -1,0 +1,55 @@
+---
+title: Aphaenogaster spp. SDM Outline
+
+---
+
+
+**Questions**
+
+*Question 1*: How will climate change affect ant distributions of the
+genus Aphaenogaster in Eastern North America?
+
+*Question 2*: How will distribution shifts in Aphaenogaster picea,
+rudis, and miamiana affect plant interactions? (specifically these
+three because A. miamiana is located at the southernmost end of the
+US, A.picea forages before A.rudis on different plants, so if A.rudis
+is expected to replace A.picea, there’s a potential for a phenological
+mismatch on both habitats….or will A. rudis cover their old habitat
+plus their new habitat? Or will it be replaced by A. carolinesis?)
+
+*Question 3*: How can ant distributional shifts help plants disperse to
+higher elevation and latitudinal locations? (basically, will anything
+good come out of this?)
+
+**Hypotheses**
+
+*Hypothesis 1*: I hypothesis that A. miamiana will contract and will be
+the most vulnerable of aphaenogaster species in years 2050
+and 2080. Species A. rudis, A. picea, and and A. f ulva will
+experience range shifts in elevation and latitude. (Can we make maps
+of future max temp/min temp/max precipitation/min precipitation before
+making a super specific hypothesis?)
+
+*Hypothesis 2*: animal-plant mutualisms between A. picea and A. rudis
+will be disrupted, and displacement of A. miamiana and A. carolinensis
+will result in ecological voids in seed-dispersal for plants in
+southernmost U.S.
+
+**Methods**
+
+- Create SMDs for 6 species of Aphaenogaster ants in 2020, 2050
+and 2080 under 4 RCP scenarios using two approaches (MaxEnt and
+MaxLike).
+- $6 \dot 3 \dot 4 \dot 2 = 128$ models total
+- overlay plants with mutualistic relationships to species to assess
+  possible phenological mismatches. (conservation edge here?).
+- would this mean that conservationists need to look close at
+  translocations?
+
+
+**Notes**
+
+We could possibly use Warren et al 2011 to compare our SDMs
+(contemporary). They used Maxent so it would be interesting to see how
+predictions of habitat suitability and probability of occurrence vary
+among each species.

@@ -1,0 +1,4 @@
+"node","name","value","type","scope","line.in","line.out"
+1,"error.msg","\""No binding for .ddg.source.parsed . DDG may be incorrect!\""","Exception","ddg.library","","NA"
+2,"error.msg","\""No binding for .ddg.sourced.scripts . DDG may be incorrect!\""","Exception","ddg.library","","NA"
+3,"error.msg","\""No binding for .ddg.sourced.scripts . DDG may be incorrect!\""","Exception","ddg.library","","NA"

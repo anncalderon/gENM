@@ -1,0 +1,8 @@
+1: installed.packages("popgraph")
+2: library(popgraph)
+3: require(ggplot2)
+4: require(gstudio)
+5: data(arapat)
+6: data <- unique(arapat[, c(2, 3, 6, 5)])
+7: centroid <- apply(data[, 3:4], 2, mean)
+8: map <- get_map(location, maptype = "satellite", zoom = 6)

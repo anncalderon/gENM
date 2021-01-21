@@ -1,0 +1,17 @@
+Architecture="x86_64"
+OperatingSystem="unix"
+Language="R"
+LanguageVersion="R version 3.3.1 (2016-06-21)"
+RDataTrackerVersion="2.24.1"
+ Script="Console"
+ProcessFileTimestamp="2016-08-12T10.34.05EDT"
+WorkingDirectory="/Users/hermes/Projects/HF/projects/gENM/src"
+DDGDirectory="/Users/hermes/Projects/HF/projects/gENM/src/ddg"
+DateTime="2016-08-12T10.34.05EDT"
+InstalledPackages="RDataTracker 2.24.1"
+0
+Exception d1 "1-error.msg" Value="\"No binding for .ddg.source.parsed . DDG may be incorrect!\"";
+DF p0 d1
+Exception d2 "2-error.msg" Value="\"No binding for .ddg.sourced.scripts . DDG may be incorrect!\"";
+DF p0 d2
+

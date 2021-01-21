@@ -1,0 +1,37 @@
+Anna Calderon
+Harvard Forest
+ENM Workflow  Outline
+
+
+
+1. Data Collection 
+	-field data: collect ants (random/non-randomly? unsure)
+	-field data: Generate presence/absence data (e.g: record the location of 	
+	 collected ants and locations where ants where absent)
+	-lab data: DNA extractions
+	-lab data: DNA analysis of collected individuals (use of SNPs, micro 	
+	 satellites, or 	
+	 other genetic markers)
+	-environmental data (eg. elevation, temperature, soil, vegetation)
+
+2. Produce Genetic Clusters
+	-Spatial distribution of clusters? (eg., maps, or grid cells, or both?)
+
+3. Environmental Niche Model
+	-Consider factors that may be responsible for different distributions within 	 species
+		a. Temperature
+		b. Barriers (beginning of speciation?)
+		c. Soil (eg., moisture, texture, temperature…)
+	“I think”	
+	-plot the genetic clusters and somehow overlay environmental data
+	- Look for correlations between environmental variables in relation to 		different genotypes.
+  
+4. Estimating amount of spatial overlap
+	-(area of overlap)/ (total area)
+	- Use of Overlapping Coefficient (http://www.iceaaonline.com/ready/wp-	
+	content/uploads/2014/06/MM-9-Presentation-Meet-the-Overlapping-Coefficient-A-	Measure-for-Elevator-Speeches.pdf) 
+
+5. Estimating Uncertainty—> ?? 
+	-how do we know that the overlap isn’t due to random chance (eg. how can we 	assure that ants of genotype AA didn’t just happen to overlap with ants of 		gentotype aa?) 
+
+	
