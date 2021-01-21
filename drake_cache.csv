@@ -7,4 +7,6 @@ d931e612232a3870,target,Data
 9fe276bf3e847b29,target,fig.cp
 bdd08b0292c6e8ee,target,files
 6e161a56f6ae6c85,import,load_data
+7e3a27be5f7c2f64,import,rmarkdown::render
+c228c0da1f7af39d,import,file report.Rmd
 217aa81f83801b57,import,plot_contour

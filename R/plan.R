@@ -6,7 +6,7 @@ plan <- drake_plan(
   data.raw = load_data(files),
   Data = clean_data(data.raw),
 ## Contour Plot
-  fig.cp = plot_contour(Data),
+  fig.cp = plot_contour(Data)
 ## Histogram plot  
   ## aph_hist = ggplot(Data, aes(x=Year)) +
   ##   geom_histogram(binwidth = 28, fill="darkcyan", col="Black", size=1, alpha=0.65) + 
@@ -15,8 +15,8 @@ plan <- drake_plan(
 
   ## BClim = brick("data/YbrevBC_2.5.grd"),
 ## Render report
-  report = rmarkdown::render(
-                          knitr_in("report.Rmd"),
-                          output_format = "pdf_document",
-                          quiet = TRUE)
+  ## report = rmarkdown::render(
+  ##                         knitr_in("report.Rmd"),
+  ##                         output_format = "pdf_document",
+  ##                         quiet = TRUE)
 )
