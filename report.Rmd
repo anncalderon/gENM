@@ -1,8 +1,8 @@
 ---
-title: "Genetics-based Environmental Niche Modeling"
+title: "Seed Ant (*Aphaenogaster*) Environmental Niche Modeling"
 output: 
-pdf_document: 
-keep_md: no
+html_document: 
+keep_md: yes
 
 ---
 
@@ -25,7 +25,7 @@ keep_md: no
 
 ```{r data-prev, echo = FALSE}
 
-loadd(Data, fig.cp)
+loadd(Data, fig.cp, fig.hist)
 head(Data)
 table(Data[, "ant.species"])
 
@@ -80,7 +80,11 @@ fig.cp
 
 ```
 
+```{r fig-hist}
 
+fig.hist
+
+```
 
 
 
