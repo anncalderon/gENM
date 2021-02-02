@@ -3,8 +3,8 @@ hash,type,name
 0e48b3fe56bd7032,import,clean_data
 d931e612232a3870,target,Data
 580ee20ac1e0ac15,target,data.raw
-d0b4a200195d3a7f,target,fig.cp
-b7e8b65f703e607d,target,fig.hist
+10e891813340e688,target,fig.cp
+9c9a72efae41f6a8,target,fig.hist
 bdd08b0292c6e8ee,target,files
 6e161a56f6ae6c85,import,load_data
 7e3a27be5f7c2f64,import,rmarkdown::render
